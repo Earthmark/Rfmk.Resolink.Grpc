@@ -1,0 +1,142 @@
+syntax = "proto3";
+
+package rfmk.resolink;
+
+import "primitives.proto";
+
+//////////////
+// Textures //
+//////////////
+
+message Texture {
+  bytes data = 1;
+  int32 width = 2;
+  int32 height = 3;
+  string color_profile = 4;
+}
+
+////////////
+// Meshes //
+////////////
+
+message MeshJson {
+  repeated Vertex vertices = 1;
+  repeated Submesh submeshes = 2;
+  repeated Bone bones = 3;
+  repeated BlendShape blend_shapes = 4;
+}
+
+message Vertex {
+  Float3 position = 1;
+  Float3 normal = 2;
+  Float4 tangent = 3;
+  Color color = 4;
+  repeated UVCoordinate uvs = 5;
+  repeated BoneWeight bone_weights = 6;
+}
+
+message UVCoordinate {
+  oneof coord {
+    Float2 uv_2d = 1;
+    Float3 uv_3d = 2;
+    Float4 uv_4d = 3;
+  }
+}
+
+message BoneWeight {
+  int32 bone_index = 1;
+  float weight = 2;
+}
+
+message Submesh {
+  oneof mesh_kind {
+    PointSubmesh points = 1;
+    TriangleSubmesh trangles = 2;
+    TrangleFlatSubmesh trangles_flat = 3;
+  }
+}
+
+message PointSubmesh {
+  repeated int32 vertex_indices = 1;
+}
+
+message TriangleSubmesh {
+  repeated Triangle trangles = 1;
+}
+
+message Triangle {
+  int32 vertex_0_index = 1;
+  int32 vertex_1_index = 2;
+  int32 vertex_2_index = 3;
+}
+
+message TrangleFlatSubmesh {
+  repeated int32 vertex_indices = 1;
+}
+
+message Bone {
+  string name = 1;
+  Float4x4 bind_pose = 2;
+}
+
+message BlendShape {
+  string name = 1;
+  repeated BlendShapeFrame frames = 2;
+}
+
+message BlendShapeFrame {
+  float position = 1;
+  repeated Float3 position_deltas = 2;
+  repeated Float3 normal_deltas = 3;
+  repeated Float3 tangent_deltas = 4;
+}
+
+message MeshRaw {
+  bytes data = 1;
+  int32 vertex_count = 2;
+  bool has_normals = 3;
+  bool has_tangents = 4;
+  bool has_colors = 5;
+  int32 bone_weight_count = 6;
+  repeated int32 uv_channel_dimensions = 7;
+  repeated RawSubmesh submeshes = 8;
+  repeated RawBlendshape blendshapes = 9;
+  repeated Bone bones = 10;
+}
+
+message RawSubmesh {
+  oneof submesh {
+    PointRawSubmesh point = 1;
+    TriangleRawSubmesh trangle = 2;
+  }
+}
+
+message PointRawSubmesh {
+  int32 point_count = 1;
+}
+
+message TriangleRawSubmesh {
+  int32 triangle_count = 1;
+}
+
+message RawBlendshape {
+  string name = 1;
+  bool has_normal_deltas = 2;
+  bool has_tangent_deltas = 3;
+  repeated RawBlendshapeFrame frames = 4;
+}
+
+message RawBlendshapeFrame {
+  float position = 1;
+}
+
+/////////////////
+// Audio Clips //
+/////////////////
+
+message RawAudioClip {
+  bytes data = 1;
+  int32 sample_count = 2;
+  int32 sample_rate = 3;
+  int32 channel_count = 4;
+}

@@ -1,27 +1,6 @@
 <#@ assembly name="System.Core" #>
 <#+
 
-  public enum ConvertKind
-  {
-    Identity,
-    Cast,
-    Converter
-  }
-  
-  public class FieldMetadata(string fieldName, string protoType, string resoType, ConvertKind conversion)
-  {
-    public string FieldName { get; } = fieldName;
-    public string ProtoType { get; } = protoType;
-    public string ResoType { get; } = resoType;
-    public ConvertKind Conversion { get; } = conversion;
-  }
-
-  public class OneofMetadata(string name, string protoType)
-  {
-    public string Name { get; } = name;
-    public string ProtoType { get; } = protoType;
-  }
-
   public class TypeMetadata(string name, string protoType, bool upcastNeeded, bool builtin, bool callConverters = false)
   {
     public bool CallConverters = callConverters || upcastNeeded || !builtin;
@@ -36,13 +15,6 @@
     public bool ExplicitNullable => NullableWkt.ContainsKey(protoType);
     public bool UpcastNeeded => upcastNeeded;
     public bool Builtin => builtin;
-
-    private static List<string> SpecialUpperNames = [
-    "SByte",
-    "UShort",
-    "UInt",
-    "ULong",
-    ];
     
     static TypeMetadata Direct(string name, string protoType, bool callConverters = false)
     {
@@ -157,7 +129,7 @@
       "double",
     ];
 
-    public static List<string> PrimitiveTypes = new();
+    public static List<string> PrimitiveTypes = [];
 
     static TypeMetadata()
     {
