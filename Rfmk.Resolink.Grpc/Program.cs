@@ -1,8 +1,5 @@
 using ResoniteLink;
 using Rfmk.Resolink.Grpc;
-using Rfmk.Resolink.Grpc.Services;
-
-MemberMapper.Convert(null);
 
 var builder = WebApplication.CreateBuilder(args);
 

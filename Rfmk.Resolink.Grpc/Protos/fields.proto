@@ -4,7 +4,7 @@
 
 syntax = "proto3";
 
-package rfmk.resonite;
+package rfmk.resolink;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/timestamp.proto";
@@ -16,6 +16,7 @@ import "primitives.proto";
 // The Monster //
 /////////////////
 
+// All field kinds must be defined in this file because fields create circular dependencies.
 
 message Member {
   oneof kind {
@@ -57,7 +58,7 @@ message Member {
     FieldNullableDouble null_double = 36;
     FieldDecimal decimal = 37;
     ArrayDecimal array_decimal = 38;
-    FieldDecimal null_decimal = 39;
+    FieldNullableDecimal null_decimal = 39;
     FieldBool bool = 40;
     ArrayBool array_bool = 41;
     FieldNullableBool null_bool = 42;
@@ -70,142 +71,142 @@ message Member {
     ArrayUri array_Uri = 49;
     FieldDateTime DateTime = 50;
     ArrayDateTime array_DateTime = 51;
-    FieldDateTime null_DateTime = 52;
+    FieldNullableDateTime null_DateTime = 52;
     FieldTimeSpan TimeSpan = 53;
     ArrayTimeSpan array_TimeSpan = 54;
-    FieldTimeSpan null_TimeSpan = 55;
+    FieldNullableTimeSpan null_TimeSpan = 55;
     FieldColor color = 56;
     ArrayColor array_color = 57;
-    FieldColor null_color = 58;
+    FieldNullableColor null_color = 58;
     FieldColorX colorX = 59;
     ArrayColorX array_colorX = 60;
-    FieldColorX null_colorX = 61;
+    FieldNullableColorX null_colorX = 61;
     FieldColor32 color32 = 62;
     ArrayColor32 array_color32 = 63;
-    FieldColor32 null_color32 = 64;
+    FieldNullableColor32 null_color32 = 64;
     FieldFloat2 float2 = 65;
     ArrayFloat2 array_float2 = 66;
-    FieldFloat2 null_float2 = 67;
+    FieldNullableFloat2 null_float2 = 67;
     FieldDouble2 double2 = 68;
     ArrayDouble2 array_double2 = 69;
-    FieldDouble2 null_double2 = 70;
+    FieldNullableDouble2 null_double2 = 70;
     FieldByte2 byte2 = 71;
     ArrayByte2 array_byte2 = 72;
-    FieldByte2 null_byte2 = 73;
+    FieldNullableByte2 null_byte2 = 73;
     FieldUshort2 ushort2 = 74;
     ArrayUshort2 array_ushort2 = 75;
-    FieldUshort2 null_ushort2 = 76;
+    FieldNullableUshort2 null_ushort2 = 76;
     FieldUint2 uint2 = 77;
     ArrayUint2 array_uint2 = 78;
-    FieldUint2 null_uint2 = 79;
+    FieldNullableUint2 null_uint2 = 79;
     FieldUlong2 ulong2 = 80;
     ArrayUlong2 array_ulong2 = 81;
-    FieldUlong2 null_ulong2 = 82;
+    FieldNullableUlong2 null_ulong2 = 82;
     FieldSbyte2 sbyte2 = 83;
     ArraySbyte2 array_sbyte2 = 84;
-    FieldSbyte2 null_sbyte2 = 85;
+    FieldNullableSbyte2 null_sbyte2 = 85;
     FieldShort2 short2 = 86;
     ArrayShort2 array_short2 = 87;
-    FieldShort2 null_short2 = 88;
+    FieldNullableShort2 null_short2 = 88;
     FieldInt2 int2 = 89;
     ArrayInt2 array_int2 = 90;
-    FieldInt2 null_int2 = 91;
+    FieldNullableInt2 null_int2 = 91;
     FieldLong2 long2 = 92;
     ArrayLong2 array_long2 = 93;
-    FieldLong2 null_long2 = 94;
+    FieldNullableLong2 null_long2 = 94;
     FieldBool2 bool2 = 95;
     ArrayBool2 array_bool2 = 96;
-    FieldBool2 null_bool2 = 97;
+    FieldNullableBool2 null_bool2 = 97;
     FieldFloat3 float3 = 98;
     ArrayFloat3 array_float3 = 99;
-    FieldFloat3 null_float3 = 100;
+    FieldNullableFloat3 null_float3 = 100;
     FieldDouble3 double3 = 101;
     ArrayDouble3 array_double3 = 102;
-    FieldDouble3 null_double3 = 103;
+    FieldNullableDouble3 null_double3 = 103;
     FieldByte3 byte3 = 104;
     ArrayByte3 array_byte3 = 105;
-    FieldByte3 null_byte3 = 106;
+    FieldNullableByte3 null_byte3 = 106;
     FieldUshort3 ushort3 = 107;
     ArrayUshort3 array_ushort3 = 108;
-    FieldUshort3 null_ushort3 = 109;
+    FieldNullableUshort3 null_ushort3 = 109;
     FieldUint3 uint3 = 110;
     ArrayUint3 array_uint3 = 111;
-    FieldUint3 null_uint3 = 112;
+    FieldNullableUint3 null_uint3 = 112;
     FieldUlong3 ulong3 = 113;
     ArrayUlong3 array_ulong3 = 114;
-    FieldUlong3 null_ulong3 = 115;
+    FieldNullableUlong3 null_ulong3 = 115;
     FieldSbyte3 sbyte3 = 116;
     ArraySbyte3 array_sbyte3 = 117;
-    FieldSbyte3 null_sbyte3 = 118;
+    FieldNullableSbyte3 null_sbyte3 = 118;
     FieldShort3 short3 = 119;
     ArrayShort3 array_short3 = 120;
-    FieldShort3 null_short3 = 121;
+    FieldNullableShort3 null_short3 = 121;
     FieldInt3 int3 = 122;
     ArrayInt3 array_int3 = 123;
-    FieldInt3 null_int3 = 124;
+    FieldNullableInt3 null_int3 = 124;
     FieldLong3 long3 = 125;
     ArrayLong3 array_long3 = 126;
-    FieldLong3 null_long3 = 127;
+    FieldNullableLong3 null_long3 = 127;
     FieldBool3 bool3 = 128;
     ArrayBool3 array_bool3 = 129;
-    FieldBool3 null_bool3 = 130;
+    FieldNullableBool3 null_bool3 = 130;
     FieldFloat4 float4 = 131;
     ArrayFloat4 array_float4 = 132;
-    FieldFloat4 null_float4 = 133;
+    FieldNullableFloat4 null_float4 = 133;
     FieldDouble4 double4 = 134;
     ArrayDouble4 array_double4 = 135;
-    FieldDouble4 null_double4 = 136;
+    FieldNullableDouble4 null_double4 = 136;
     FieldByte4 byte4 = 137;
     ArrayByte4 array_byte4 = 138;
-    FieldByte4 null_byte4 = 139;
+    FieldNullableByte4 null_byte4 = 139;
     FieldUshort4 ushort4 = 140;
     ArrayUshort4 array_ushort4 = 141;
-    FieldUshort4 null_ushort4 = 142;
+    FieldNullableUshort4 null_ushort4 = 142;
     FieldUint4 uint4 = 143;
     ArrayUint4 array_uint4 = 144;
-    FieldUint4 null_uint4 = 145;
+    FieldNullableUint4 null_uint4 = 145;
     FieldUlong4 ulong4 = 146;
     ArrayUlong4 array_ulong4 = 147;
-    FieldUlong4 null_ulong4 = 148;
+    FieldNullableUlong4 null_ulong4 = 148;
     FieldSbyte4 sbyte4 = 149;
     ArraySbyte4 array_sbyte4 = 150;
-    FieldSbyte4 null_sbyte4 = 151;
+    FieldNullableSbyte4 null_sbyte4 = 151;
     FieldShort4 short4 = 152;
     ArrayShort4 array_short4 = 153;
-    FieldShort4 null_short4 = 154;
+    FieldNullableShort4 null_short4 = 154;
     FieldInt4 int4 = 155;
     ArrayInt4 array_int4 = 156;
-    FieldInt4 null_int4 = 157;
+    FieldNullableInt4 null_int4 = 157;
     FieldLong4 long4 = 158;
     ArrayLong4 array_long4 = 159;
-    FieldLong4 null_long4 = 160;
+    FieldNullableLong4 null_long4 = 160;
     FieldBool4 bool4 = 161;
     ArrayBool4 array_bool4 = 162;
-    FieldBool4 null_bool4 = 163;
+    FieldNullableBool4 null_bool4 = 163;
     FieldFloatQ floatQ = 164;
     ArrayFloatQ array_floatQ = 165;
-    FieldFloatQ null_floatQ = 166;
+    FieldNullableFloatQ null_floatQ = 166;
     FieldDoubleQ doubleQ = 167;
     ArrayDoubleQ array_doubleQ = 168;
-    FieldDoubleQ null_doubleQ = 169;
+    FieldNullableDoubleQ null_doubleQ = 169;
     FieldFloat2x2 float2x2 = 170;
     ArrayFloat2x2 array_float2x2 = 171;
-    FieldFloat2x2 null_float2x2 = 172;
+    FieldNullableFloat2x2 null_float2x2 = 172;
     FieldDouble2x2 double2x2 = 173;
     ArrayDouble2x2 array_double2x2 = 174;
-    FieldDouble2x2 null_double2x2 = 175;
+    FieldNullableDouble2x2 null_double2x2 = 175;
     FieldFloat3x3 float3x3 = 176;
     ArrayFloat3x3 array_float3x3 = 177;
-    FieldFloat3x3 null_float3x3 = 178;
+    FieldNullableFloat3x3 null_float3x3 = 178;
     FieldDouble3x3 double3x3 = 179;
     ArrayDouble3x3 array_double3x3 = 180;
-    FieldDouble3x3 null_double3x3 = 181;
+    FieldNullableDouble3x3 null_double3x3 = 181;
     FieldFloat4x4 float4x4 = 182;
     ArrayFloat4x4 array_float4x4 = 183;
-    FieldFloat4x4 null_float4x4 = 184;
+    FieldNullableFloat4x4 null_float4x4 = 184;
     FieldDouble4x4 double4x4 = 185;
     ArrayDouble4x4 array_double4x4 = 186;
-    FieldDouble4x4 null_double4x4 = 187;
+    FieldNullableDouble4x4 null_double4x4 = 187;
   }
 }
 
@@ -405,6 +406,11 @@ message ArrayDecimal {
   repeated Decimal values = 2;
 }
 
+message FieldNullableDecimal {
+  string id = 1;
+  Decimal value = 2;
+}
+
 message FieldBool {
   string id = 1;
   bool value = 2;
@@ -465,6 +471,11 @@ message ArrayDateTime {
   repeated google.protobuf.Timestamp values = 2;
 }
 
+message FieldNullableDateTime {
+  string id = 1;
+  google.protobuf.Timestamp value = 2;
+}
+
 message FieldTimeSpan {
   string id = 1;
   google.protobuf.Duration value = 2;
@@ -473,6 +484,11 @@ message FieldTimeSpan {
 message ArrayTimeSpan {
   string id = 1;
   repeated google.protobuf.Duration values = 2;
+}
+
+message FieldNullableTimeSpan {
+  string id = 1;
+  google.protobuf.Duration value = 2;
 }
 
 message FieldColor {
@@ -485,6 +501,11 @@ message ArrayColor {
   repeated Color values = 2;
 }
 
+message FieldNullableColor {
+  string id = 1;
+  Color value = 2;
+}
+
 message FieldColorX {
   string id = 1;
   ColorX value = 2;
@@ -493,6 +514,11 @@ message FieldColorX {
 message ArrayColorX {
   string id = 1;
   repeated ColorX values = 2;
+}
+
+message FieldNullableColorX {
+  string id = 1;
+  ColorX value = 2;
 }
 
 message FieldColor32 {
@@ -505,6 +531,11 @@ message ArrayColor32 {
   repeated Color32 values = 2;
 }
 
+message FieldNullableColor32 {
+  string id = 1;
+  Color32 value = 2;
+}
+
 message FieldFloat2 {
   string id = 1;
   Float2 value = 2;
@@ -513,6 +544,11 @@ message FieldFloat2 {
 message ArrayFloat2 {
   string id = 1;
   repeated Float2 values = 2;
+}
+
+message FieldNullableFloat2 {
+  string id = 1;
+  Float2 value = 2;
 }
 
 message FieldDouble2 {
@@ -525,6 +561,11 @@ message ArrayDouble2 {
   repeated Double2 values = 2;
 }
 
+message FieldNullableDouble2 {
+  string id = 1;
+  Double2 value = 2;
+}
+
 message FieldByte2 {
   string id = 1;
   Byte2 value = 2;
@@ -533,6 +574,11 @@ message FieldByte2 {
 message ArrayByte2 {
   string id = 1;
   repeated Byte2 values = 2;
+}
+
+message FieldNullableByte2 {
+  string id = 1;
+  Byte2 value = 2;
 }
 
 message FieldUshort2 {
@@ -545,6 +591,11 @@ message ArrayUshort2 {
   repeated Ushort2 values = 2;
 }
 
+message FieldNullableUshort2 {
+  string id = 1;
+  Ushort2 value = 2;
+}
+
 message FieldUint2 {
   string id = 1;
   Uint2 value = 2;
@@ -553,6 +604,11 @@ message FieldUint2 {
 message ArrayUint2 {
   string id = 1;
   repeated Uint2 values = 2;
+}
+
+message FieldNullableUint2 {
+  string id = 1;
+  Uint2 value = 2;
 }
 
 message FieldUlong2 {
@@ -565,6 +621,11 @@ message ArrayUlong2 {
   repeated Ulong2 values = 2;
 }
 
+message FieldNullableUlong2 {
+  string id = 1;
+  Ulong2 value = 2;
+}
+
 message FieldSbyte2 {
   string id = 1;
   Sbyte2 value = 2;
@@ -573,6 +634,11 @@ message FieldSbyte2 {
 message ArraySbyte2 {
   string id = 1;
   repeated Sbyte2 values = 2;
+}
+
+message FieldNullableSbyte2 {
+  string id = 1;
+  Sbyte2 value = 2;
 }
 
 message FieldShort2 {
@@ -585,6 +651,11 @@ message ArrayShort2 {
   repeated Short2 values = 2;
 }
 
+message FieldNullableShort2 {
+  string id = 1;
+  Short2 value = 2;
+}
+
 message FieldInt2 {
   string id = 1;
   Int2 value = 2;
@@ -593,6 +664,11 @@ message FieldInt2 {
 message ArrayInt2 {
   string id = 1;
   repeated Int2 values = 2;
+}
+
+message FieldNullableInt2 {
+  string id = 1;
+  Int2 value = 2;
 }
 
 message FieldLong2 {
@@ -605,6 +681,11 @@ message ArrayLong2 {
   repeated Long2 values = 2;
 }
 
+message FieldNullableLong2 {
+  string id = 1;
+  Long2 value = 2;
+}
+
 message FieldBool2 {
   string id = 1;
   Bool2 value = 2;
@@ -613,6 +694,11 @@ message FieldBool2 {
 message ArrayBool2 {
   string id = 1;
   repeated Bool2 values = 2;
+}
+
+message FieldNullableBool2 {
+  string id = 1;
+  Bool2 value = 2;
 }
 
 message FieldFloat3 {
@@ -625,6 +711,11 @@ message ArrayFloat3 {
   repeated Float3 values = 2;
 }
 
+message FieldNullableFloat3 {
+  string id = 1;
+  Float3 value = 2;
+}
+
 message FieldDouble3 {
   string id = 1;
   Double3 value = 2;
@@ -633,6 +724,11 @@ message FieldDouble3 {
 message ArrayDouble3 {
   string id = 1;
   repeated Double3 values = 2;
+}
+
+message FieldNullableDouble3 {
+  string id = 1;
+  Double3 value = 2;
 }
 
 message FieldByte3 {
@@ -645,6 +741,11 @@ message ArrayByte3 {
   repeated Byte3 values = 2;
 }
 
+message FieldNullableByte3 {
+  string id = 1;
+  Byte3 value = 2;
+}
+
 message FieldUshort3 {
   string id = 1;
   Ushort3 value = 2;
@@ -653,6 +754,11 @@ message FieldUshort3 {
 message ArrayUshort3 {
   string id = 1;
   repeated Ushort3 values = 2;
+}
+
+message FieldNullableUshort3 {
+  string id = 1;
+  Ushort3 value = 2;
 }
 
 message FieldUint3 {
@@ -665,6 +771,11 @@ message ArrayUint3 {
   repeated Uint3 values = 2;
 }
 
+message FieldNullableUint3 {
+  string id = 1;
+  Uint3 value = 2;
+}
+
 message FieldUlong3 {
   string id = 1;
   Ulong3 value = 2;
@@ -673,6 +784,11 @@ message FieldUlong3 {
 message ArrayUlong3 {
   string id = 1;
   repeated Ulong3 values = 2;
+}
+
+message FieldNullableUlong3 {
+  string id = 1;
+  Ulong3 value = 2;
 }
 
 message FieldSbyte3 {
@@ -685,6 +801,11 @@ message ArraySbyte3 {
   repeated Sbyte3 values = 2;
 }
 
+message FieldNullableSbyte3 {
+  string id = 1;
+  Sbyte3 value = 2;
+}
+
 message FieldShort3 {
   string id = 1;
   Short3 value = 2;
@@ -693,6 +814,11 @@ message FieldShort3 {
 message ArrayShort3 {
   string id = 1;
   repeated Short3 values = 2;
+}
+
+message FieldNullableShort3 {
+  string id = 1;
+  Short3 value = 2;
 }
 
 message FieldInt3 {
@@ -705,6 +831,11 @@ message ArrayInt3 {
   repeated Int3 values = 2;
 }
 
+message FieldNullableInt3 {
+  string id = 1;
+  Int3 value = 2;
+}
+
 message FieldLong3 {
   string id = 1;
   Long3 value = 2;
@@ -713,6 +844,11 @@ message FieldLong3 {
 message ArrayLong3 {
   string id = 1;
   repeated Long3 values = 2;
+}
+
+message FieldNullableLong3 {
+  string id = 1;
+  Long3 value = 2;
 }
 
 message FieldBool3 {
@@ -725,6 +861,11 @@ message ArrayBool3 {
   repeated Bool3 values = 2;
 }
 
+message FieldNullableBool3 {
+  string id = 1;
+  Bool3 value = 2;
+}
+
 message FieldFloat4 {
   string id = 1;
   Float4 value = 2;
@@ -733,6 +874,11 @@ message FieldFloat4 {
 message ArrayFloat4 {
   string id = 1;
   repeated Float4 values = 2;
+}
+
+message FieldNullableFloat4 {
+  string id = 1;
+  Float4 value = 2;
 }
 
 message FieldDouble4 {
@@ -745,6 +891,11 @@ message ArrayDouble4 {
   repeated Double4 values = 2;
 }
 
+message FieldNullableDouble4 {
+  string id = 1;
+  Double4 value = 2;
+}
+
 message FieldByte4 {
   string id = 1;
   Byte4 value = 2;
@@ -753,6 +904,11 @@ message FieldByte4 {
 message ArrayByte4 {
   string id = 1;
   repeated Byte4 values = 2;
+}
+
+message FieldNullableByte4 {
+  string id = 1;
+  Byte4 value = 2;
 }
 
 message FieldUshort4 {
@@ -765,6 +921,11 @@ message ArrayUshort4 {
   repeated Ushort4 values = 2;
 }
 
+message FieldNullableUshort4 {
+  string id = 1;
+  Ushort4 value = 2;
+}
+
 message FieldUint4 {
   string id = 1;
   Uint4 value = 2;
@@ -773,6 +934,11 @@ message FieldUint4 {
 message ArrayUint4 {
   string id = 1;
   repeated Uint4 values = 2;
+}
+
+message FieldNullableUint4 {
+  string id = 1;
+  Uint4 value = 2;
 }
 
 message FieldUlong4 {
@@ -785,6 +951,11 @@ message ArrayUlong4 {
   repeated Ulong4 values = 2;
 }
 
+message FieldNullableUlong4 {
+  string id = 1;
+  Ulong4 value = 2;
+}
+
 message FieldSbyte4 {
   string id = 1;
   Sbyte4 value = 2;
@@ -793,6 +964,11 @@ message FieldSbyte4 {
 message ArraySbyte4 {
   string id = 1;
   repeated Sbyte4 values = 2;
+}
+
+message FieldNullableSbyte4 {
+  string id = 1;
+  Sbyte4 value = 2;
 }
 
 message FieldShort4 {
@@ -805,6 +981,11 @@ message ArrayShort4 {
   repeated Short4 values = 2;
 }
 
+message FieldNullableShort4 {
+  string id = 1;
+  Short4 value = 2;
+}
+
 message FieldInt4 {
   string id = 1;
   Int4 value = 2;
@@ -813,6 +994,11 @@ message FieldInt4 {
 message ArrayInt4 {
   string id = 1;
   repeated Int4 values = 2;
+}
+
+message FieldNullableInt4 {
+  string id = 1;
+  Int4 value = 2;
 }
 
 message FieldLong4 {
@@ -825,6 +1011,11 @@ message ArrayLong4 {
   repeated Long4 values = 2;
 }
 
+message FieldNullableLong4 {
+  string id = 1;
+  Long4 value = 2;
+}
+
 message FieldBool4 {
   string id = 1;
   Bool4 value = 2;
@@ -833,6 +1024,11 @@ message FieldBool4 {
 message ArrayBool4 {
   string id = 1;
   repeated Bool4 values = 2;
+}
+
+message FieldNullableBool4 {
+  string id = 1;
+  Bool4 value = 2;
 }
 
 message FieldFloatQ {
@@ -845,6 +1041,11 @@ message ArrayFloatQ {
   repeated FloatQ values = 2;
 }
 
+message FieldNullableFloatQ {
+  string id = 1;
+  FloatQ value = 2;
+}
+
 message FieldDoubleQ {
   string id = 1;
   DoubleQ value = 2;
@@ -853,6 +1054,11 @@ message FieldDoubleQ {
 message ArrayDoubleQ {
   string id = 1;
   repeated DoubleQ values = 2;
+}
+
+message FieldNullableDoubleQ {
+  string id = 1;
+  DoubleQ value = 2;
 }
 
 message FieldFloat2x2 {
@@ -865,6 +1071,11 @@ message ArrayFloat2x2 {
   repeated Float2x2 values = 2;
 }
 
+message FieldNullableFloat2x2 {
+  string id = 1;
+  Float2x2 value = 2;
+}
+
 message FieldDouble2x2 {
   string id = 1;
   Double2x2 value = 2;
@@ -873,6 +1084,11 @@ message FieldDouble2x2 {
 message ArrayDouble2x2 {
   string id = 1;
   repeated Double2x2 values = 2;
+}
+
+message FieldNullableDouble2x2 {
+  string id = 1;
+  Double2x2 value = 2;
 }
 
 message FieldFloat3x3 {
@@ -885,6 +1101,11 @@ message ArrayFloat3x3 {
   repeated Float3x3 values = 2;
 }
 
+message FieldNullableFloat3x3 {
+  string id = 1;
+  Float3x3 value = 2;
+}
+
 message FieldDouble3x3 {
   string id = 1;
   Double3x3 value = 2;
@@ -893,6 +1114,11 @@ message FieldDouble3x3 {
 message ArrayDouble3x3 {
   string id = 1;
   repeated Double3x3 values = 2;
+}
+
+message FieldNullableDouble3x3 {
+  string id = 1;
+  Double3x3 value = 2;
 }
 
 message FieldFloat4x4 {
@@ -905,6 +1131,11 @@ message ArrayFloat4x4 {
   repeated Float4x4 values = 2;
 }
 
+message FieldNullableFloat4x4 {
+  string id = 1;
+  Float4x4 value = 2;
+}
+
 message FieldDouble4x4 {
   string id = 1;
   Double4x4 value = 2;
@@ -913,5 +1144,10 @@ message FieldDouble4x4 {
 message ArrayDouble4x4 {
   string id = 1;
   repeated Double4x4 values = 2;
+}
+
+message FieldNullableDouble4x4 {
+  string id = 1;
+  Double4x4 value = 2;
 }
 

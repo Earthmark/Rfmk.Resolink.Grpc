@@ -1,11 +1,11 @@
 syntax = "proto3";
 
-package rfmk.resonite;
+package rfmk.resolink;
 
 import "models.proto";
 import "google/protobuf/empty.proto";
 
-service ResoniteLink {
+service LinkService {
   rpc GetSlot (GetSlotRequest) returns (Slot) {}
   rpc AddSlot (AddSlotRequest) returns (google.protobuf.Empty) {}
   rpc UpdateSlot (UpdateSlotRequest) returns (google.protobuf.Empty) {}

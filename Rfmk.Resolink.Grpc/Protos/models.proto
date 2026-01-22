@@ -1,6 +1,6 @@
 ﻿syntax = "proto3";
 
-package rfmk.resonite;
+package rfmk.resolink;
 
 import "fields.proto";
 

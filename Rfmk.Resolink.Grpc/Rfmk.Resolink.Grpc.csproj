@@ -7,35 +7,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Protobuf Include="Protos\*.proto" GrpcServices="Server" AdditionalImportDirs="Protos" />
-    <Protobuf Update="Protos\primitives.proto">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>primitives.tt</DependentUpon>
-    </Protobuf>
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Grpc.AspNetCore" Version="2.76.0" />
     <PackageReference Include="YellowDogMan.ResoniteLink" Version="0.4.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Converters\MatrixTypes.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>MatrixTypes.cs</LastGenOutput>
-    </None>
     <None Update="Converters\Primitives.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Primitives.cs</LastGenOutput>
     </None>
-    <None Update="Converters\Quaternions.tt">
+    <None Update="Converters\Fields.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Quaternions.cs</LastGenOutput>
+      <LastGenOutput>Fields.cs</LastGenOutput>
     </None>
-    <None Update="Converters\Vectors.tt">
+    <None Update="Converters\Member.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Vectors.cs</LastGenOutput>
+      <LastGenOutput>Member.cs</LastGenOutput>
     </None>
     <None Update="Protos\fields.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -52,29 +39,35 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Converters\MatrixTypes.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>MatrixTypes.tt</DependentUpon>
-    </Compile>
     <Compile Update="Converters\Primitives.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Primitives.tt</DependentUpon>
     </Compile>
-    <Compile Update="Converters\Quaternions.cs">
+    <Compile Update="Converters\Fields.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>Quaternions.tt</DependentUpon>
+      <DependentUpon>Fields.tt</DependentUpon>
     </Compile>
-    <Compile Update="Converters\Vectors.cs">
-      <DesignTime>True</DesignTime>
+    <Compile Update="Converters\Fields.cs">
       <AutoGen>True</AutoGen>
-      <DependentUpon>Vectors.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Fields.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\Member.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Member.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\Member.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Member.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
+    <Protobuf Include="Protos\*.proto" GrpcServices="Server" AdditionalImportDirs="Protos" />
     <Protobuf Update="Protos\fields.proto" AdditionalImportDirs="Protos">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
