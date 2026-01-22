@@ -1,0 +1,38 @@
+﻿syntax = "proto3";
+
+package rfmk.resonite;
+
+import "fields.proto";
+
+//////////////////////////
+// Root Datamodel Types //
+//////////////////////////
+
+message Slot {
+  string id = 1;
+  bool is_reference_only = 2;
+
+  Reference parent = 3;
+
+  FieldString name = 4;
+  FieldString tag = 5;
+
+  FieldFloat3 position = 6;
+  FieldFloatQ rotation = 7;
+  FieldFloat3 Scale = 8;
+
+  FieldBool is_active = 9;
+  FieldBool is_persistent = 10;
+
+  FieldLong order_offset = 11;
+
+  repeated Component components = 12;
+  repeated Slot children = 13;
+}
+
+message Component {
+  string id = 1;
+  bool is_reference_only = 2;
+  string component_type = 3;
+  map<string, Member> members = 4;
+}

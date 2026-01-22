@@ -1,0 +1,175 @@
+<#@ assembly name="System.Core" #>
+<#+
+
+  public enum ConvertKind
+  {
+    Identity,
+    Cast,
+    Converter
+  }
+
+  public class FieldMetadata(string fieldName, string protoType, string resoType, ConvertKind conversion)
+  {
+    public string FieldName { get; } = fieldName;
+    public string ProtoType { get; } = protoType;
+    public string ResoType { get; } = resoType;
+    public ConvertKind Conversion { get; } = conversion;
+  }
+
+  public class OneofMetadata(string name, string protoType)
+  {
+    public string Name { get; } = name;
+    public string ProtoType { get; } = protoType;
+  }
+  
+  public class TypeMetadata(string name, string protoType, bool upcastNeeded, bool builtin)
+  {
+    public string Name { get; } = name;
+    public string FieldName = $"Field{WordUpper(name)}";
+    public string RepeatedName = $"Array{WordUpper(name)}";
+    public string ProtoType { get; } = builtin ? protoType : WordUpper(protoType);
+    public string NullabeFieldName = $"FieldNullable{WordUpper(name)}";
+    public string NullableProtoType { get; } = NullableWkt.TryGetValue(protoType, out var nullable) ? nullable : "";
+    public bool ExplicitNullable { get; } = NullableWkt.ContainsKey(protoType);
+    public bool UpcastNeeded { get; } = upcastNeeded;
+    public bool Builtin { get; } = builtin;
+
+    static TypeMetadata Direct(string name, string protoType)
+    {
+      return new TypeMetadata(name, protoType, false, true);
+    }
+
+    static TypeMetadata Upcast(string name, string protoType)
+    {
+      return new TypeMetadata(name, protoType,true, true);
+    }
+
+    private static readonly Dictionary<string, string> NullableWkt = new()
+    {
+      ["bool"] = "google.protobuf.BoolValue",
+      ["double"] = "google.protobuf.DoubleValue",
+      ["float"] = "google.protobuf.FloatValue",
+      ["int32"] = "google.protobuf.Int32Value",
+      ["int64"] = "google.protobuf.Int64Value",
+      ["uint32"] = "google.protobuf.UInt32Value",
+      ["uint64"] = "google.protobuf.UInt64Value",
+    };
+
+    private static readonly List<TypeMetadata> ProtoCoreTypes = [
+      Upcast("sbyte", "int32"),
+      Upcast("short", "int32"),
+      Direct("int", "int32"),
+      Direct("long", "int64"),
+      
+      Upcast("byte", "uint32"),
+      Upcast("ushort", "uint32"),
+      Direct("uint", "uint32"),
+      Direct("ulong", "uint64"),
+      
+      Upcast("char", "uint32"),
+      
+      Direct("float", "float"),
+      Direct("double", "double"),
+      Direct("bool", "bool"),
+      Direct("string", "google.protobuf.StringValue"),
+      Direct("Uri", "google.protobuf.StringValue"),
+      Direct("DateTime", "google.protobuf.Timestamp"),
+      Direct("TimeSpan", "google.protobuf.Duration"),
+      ];
+
+    private static readonly Dictionary<string, TypeMetadata> CoreProtoNameLookup = ProtoCoreTypes.ToDictionary(m => m.Name);
+
+    public static TypeMetadata ProtoMetadata(string csType)
+    {
+      return CoreProtoNameLookup.TryGetValue(csType, out var value) ? value :
+        new TypeMetadata(csType, csType, false, false);
+    }
+    
+    public static HashSet<string> NonNullableTypes = [
+      "string",
+      "Uri"
+    ];
+
+    public static List<string> StandaloneTypes = [
+      "byte",
+      "ushort",
+      "uint",
+      "ulong",
+
+      "sbyte",
+      "short",
+      "int",
+      "long",
+
+      "float",
+      "double",
+
+      "decimal",
+
+      "bool",
+
+      "char",
+      "string",
+      "Uri",
+
+      "DateTime",
+      "TimeSpan",
+
+      "color",
+      "colorX",
+      "color32"
+    ];
+
+    public static List<string> VectorTypes = [
+      "float",
+      "double",
+
+      "byte",
+      "ushort",
+      "uint",
+      "ulong",
+
+      "sbyte",
+      "short",
+      "int",
+      "long",
+
+      "bool"
+    ];
+
+    public static List<string> QuaternionTypes = [
+      "float",
+      "double"
+    ];
+
+    public static List<string> MatrixTypes = [
+      "float",
+      "double",
+    ];
+
+    public static List<string> PrimitiveTypes = new();
+
+    static TypeMetadata()
+    {
+      PrimitiveTypes.AddRange(StandaloneTypes);
+
+      for(int dim = 2; dim <= 4; dim++)
+        PrimitiveTypes.AddRange(VectorTypes.Select(v => v + dim));
+
+      PrimitiveTypes.AddRange(QuaternionTypes.Select(v => v + "Q"));
+
+      for(int dim = 2; dim <= 4; dim++)
+        PrimitiveTypes.AddRange(MatrixTypes.Select(v => $"{v}{dim}x{dim}"));
+    }
+  }
+
+  private static readonly  HashSet<string> DoubleUppers = [
+    "sbyte", "ushort", "uint","ulong"
+    ];
+  
+  public static string WordUpper(string name)
+  {
+    var upperLen = DoubleUppers.Contains(name) ? 2 : 1;
+    return name.Substring(0, upperLen).ToUpper() + name.Substring(upperLen);
+  }
+#>

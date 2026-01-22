@@ -1,0 +1,94 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos\*.proto" GrpcServices="Server" AdditionalImportDirs="Protos" />
+    <Protobuf Update="Protos\primitives.proto">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>primitives.tt</DependentUpon>
+    </Protobuf>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.76.0" />
+    <PackageReference Include="YellowDogMan.ResoniteLink" Version="0.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Converters\MatrixTypes.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MatrixTypes.cs</LastGenOutput>
+    </None>
+    <None Update="Converters\Primitives.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Primitives.cs</LastGenOutput>
+    </None>
+    <None Update="Converters\Quaternions.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Quaternions.cs</LastGenOutput>
+    </None>
+    <None Update="Converters\Vectors.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Vectors.cs</LastGenOutput>
+    </None>
+    <None Update="Protos\fields.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>fields.proto</LastGenOutput>
+    </None>
+    <None Update="Protos\primitives.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>primitives.proto</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Converters\MatrixTypes.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MatrixTypes.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\Primitives.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Primitives.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\Quaternions.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Quaternions.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\Vectors.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Vectors.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Update="Protos\fields.proto" AdditionalImportDirs="Protos">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>fields.tt</DependentUpon>
+    </Protobuf>
+    <Protobuf Update="Protos\primitives.proto" AdditionalImportDirs="Protos">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>primitives.tt</DependentUpon>
+    </Protobuf>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Generation\" />
+  </ItemGroup>
+
+</Project>

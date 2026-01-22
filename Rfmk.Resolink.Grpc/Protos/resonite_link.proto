@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package rfmk.resonite;
+
+import "models.proto";
+import "google/protobuf/empty.proto";
+
+service ResoniteLink {
+  rpc GetSlot (GetSlotRequest) returns (Slot) {}
+  rpc AddSlot (AddSlotRequest) returns (google.protobuf.Empty) {}
+  rpc UpdateSlot (UpdateSlotRequest) returns (google.protobuf.Empty) {}
+  rpc RemoveSlot (DeleteSlotRequest) returns (google.protobuf.Empty) {}
+
+  rpc GetComponent (GetComponentRequest) returns (Component) {}
+  rpc AddComponent (AddComponentRequest) returns (google.protobuf.Empty) {}
+  rpc UpdateComponent (UpdateComponentRequest) returns (google.protobuf.Empty) {}
+  rpc RemoveComponent (DeleteComponentRequest) returns (google.protobuf.Empty) {}
+}
+
+message GetSlotRequest {
+  string slot_id = 1;
+  int32 depth = 2;
+  bool include_component_data = 3;
+}
+
+message AddSlotRequest {
+  Slot data = 1;
+}
+
+message UpdateSlotRequest {
+  Slot data = 2;
+}
+
+message DeleteSlotRequest {
+  string slot_id = 1;
+}
+
+message GetComponentRequest {
+  string component_id = 1;
+}
+
+message AddComponentRequest {
+  string container_slot_id = 1;
+  Component data = 2;
+}
+
+message UpdateComponentRequest {
+  Component data = 1;
+}
+
+message DeleteComponentRequest {
+  string component_id = 1;
+}
