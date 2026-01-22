@@ -1,42 +1,24 @@
 <#@ assembly name="System.Core" #>
 <#+
 
-  public enum ConvertKind
+  public class TypeMetadata(string name, string protoType, bool upcastNeeded, bool builtin, bool callConverters = false)
   {
-    Identity,
-    Cast,
-    Converter
-  }
-
-  public class FieldMetadata(string fieldName, string protoType, string resoType, ConvertKind conversion)
-  {
-    public string FieldName { get; } = fieldName;
-    public string ProtoType { get; } = protoType;
-    public string ResoType { get; } = resoType;
-    public ConvertKind Conversion { get; } = conversion;
-  }
-
-  public class OneofMetadata(string name, string protoType)
-  {
-    public string Name { get; } = name;
-    public string ProtoType { get; } = protoType;
-  }
-  
-  public class TypeMetadata(string name, string protoType, bool upcastNeeded, bool builtin)
-  {
-    public string Name { get; } = name;
-    public string FieldName = $"Field{WordUpper(name)}";
-    public string RepeatedName = $"Array{WordUpper(name)}";
-    public string ProtoType { get; } = builtin ? protoType : WordUpper(protoType);
-    public string NullabeFieldName = $"FieldNullable{WordUpper(name)}";
-    public string NullableProtoType { get; } = NullableWkt.TryGetValue(protoType, out var nullable) ? nullable : "";
-    public bool ExplicitNullable { get; } = NullableWkt.ContainsKey(protoType);
-    public bool UpcastNeeded { get; } = upcastNeeded;
-    public bool Builtin { get; } = builtin;
-
-    static TypeMetadata Direct(string name, string protoType)
+    public bool CallConverters = callConverters || upcastNeeded || !builtin;
+    public string Name => name;
+    public string CapsName => WordUpper(name, true);
+    public string CapsSingleUpperName => WordUpper(name);
+    public string FieldName => $"Field{CapsName}";
+    public string RepeatedName => $"Array{CapsName}";
+    public string ProtoType => builtin ? protoType : CapsName;
+    public string NullabeFieldName => $"FieldNullable{CapsName}";
+    public string NullableProtoType => NullableWkt.TryGetValue(protoType, out var nullable) ? nullable : ProtoType;
+    public bool ExplicitNullable => NullableWkt.ContainsKey(protoType);
+    public bool UpcastNeeded => upcastNeeded;
+    public bool Builtin => builtin;
+    
+    static TypeMetadata Direct(string name, string protoType, bool callConverters = false)
     {
-      return new TypeMetadata(name, protoType, false, true);
+      return new TypeMetadata(name, protoType, false, true, callConverters);
     }
 
     static TypeMetadata Upcast(string name, string protoType)
@@ -72,9 +54,9 @@
       Direct("double", "double"),
       Direct("bool", "bool"),
       Direct("string", "google.protobuf.StringValue"),
-      Direct("Uri", "google.protobuf.StringValue"),
-      Direct("DateTime", "google.protobuf.Timestamp"),
-      Direct("TimeSpan", "google.protobuf.Duration"),
+      Direct("Uri", "google.protobuf.StringValue", true),
+      Direct("DateTime", "google.protobuf.Timestamp", true),
+      Direct("TimeSpan", "google.protobuf.Duration", true),
       ];
 
     private static readonly Dictionary<string, TypeMetadata> CoreProtoNameLookup = ProtoCoreTypes.ToDictionary(m => m.Name);
@@ -147,7 +129,7 @@
       "double",
     ];
 
-    public static List<string> PrimitiveTypes = new();
+    public static List<string> PrimitiveTypes = [];
 
     static TypeMetadata()
     {
@@ -163,13 +145,13 @@
     }
   }
 
-  private static readonly  HashSet<string> DoubleUppers = [
+  private static readonly  HashSet<string> DoubleUppers = new (StringComparer.OrdinalIgnoreCase) {
     "sbyte", "ushort", "uint","ulong"
-    ];
+    };
   
-  public static string WordUpper(string name)
+  public static string WordUpper(string name, bool useDouble = false)
   {
-    var upperLen = DoubleUppers.Contains(name) ? 2 : 1;
+    var upperLen = DoubleUppers.Contains(name) && useDouble ? 2 : 1;
     return name.Substring(0, upperLen).ToUpper() + name.Substring(upperLen);
   }
 #>

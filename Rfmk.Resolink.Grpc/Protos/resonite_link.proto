@@ -1,11 +1,12 @@
 syntax = "proto3";
 
-package rfmk.resonite;
+package rfmk.resolink;
 
+import "assets.proto";
 import "models.proto";
 import "google/protobuf/empty.proto";
 
-service ResoniteLink {
+service LinkService {
   rpc GetSlot (GetSlotRequest) returns (Slot) {}
   rpc AddSlot (AddSlotRequest) returns (google.protobuf.Empty) {}
   rpc UpdateSlot (UpdateSlotRequest) returns (google.protobuf.Empty) {}
@@ -15,6 +16,14 @@ service ResoniteLink {
   rpc AddComponent (AddComponentRequest) returns (google.protobuf.Empty) {}
   rpc UpdateComponent (UpdateComponentRequest) returns (google.protobuf.Empty) {}
   rpc RemoveComponent (DeleteComponentRequest) returns (google.protobuf.Empty) {}
+
+  // File operations (this may not be available in all contexts).
+  rpc ImportTextureFile (ImportFileRequest) returns (AssetResponse);
+  rpc ImportAudioClipFile (ImportFileRequest) returns (AssetResponse);
+  
+  rpc ImportTexture (ImportTextureRequest) returns (AssetResponse);
+  rpc ImportMesh (ImportMeshRequest) returns (AssetResponse);
+  rpc ImportAudioClip (ImportAudioClipRequest) returns (AssetResponse);
 }
 
 message GetSlotRequest {
@@ -50,4 +59,27 @@ message UpdateComponentRequest {
 
 message DeleteComponentRequest {
   string component_id = 1;
+}
+
+message ImportFileRequest {
+  string file_path = 1;
+}
+
+message ImportTextureRequest {
+  Texture texture = 1;
+}
+
+message ImportMeshRequest {
+  oneof mesh_kind {
+    MeshJson json = 1;
+    MeshRaw raw = 2;
+  }
+}
+
+message ImportAudioClipRequest {
+  RawAudioClip raw_clip = 1;
+}
+
+message AssetResponse {
+  string asset_url = 1;
 }

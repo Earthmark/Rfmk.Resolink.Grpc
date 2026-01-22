@@ -9,7 +9,7 @@
 
 syntax = "proto3";
 
-package rfmk.resonite;
+package rfmk.resolink;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/timestamp.proto";
@@ -21,10 +21,11 @@ import "primitives.proto";
 // The Monster //
 /////////////////
 
+// All field kinds must be defined in this file because fields create circular dependencies.
+
 <#
   var startIndex = 7;
 #>
-
 message Member {
   oneof kind {
     Empty empty = 1;
@@ -44,7 +45,7 @@ message Member {
     if (!TypeMetadata.NonNullableTypes.Contains(type))
     {
 #>
-    <#= m.ExplicitNullable ? m.NullabeFieldName : m.FieldName #> null_<#= m.Name #> = <#= startIndex++ #>;
+    <#= m.NullabeFieldName #> null_<#= m.Name #> = <#= startIndex++ #>;
 <#
         }
   }
@@ -104,7 +105,7 @@ message <#= m.RepeatedName #> {
 }
 
 <#
-        if (!TypeMetadata.NonNullableTypes.Contains(type) && m.ExplicitNullable)
+        if (!TypeMetadata.NonNullableTypes.Contains(type))
         {
 #>
 message <#= m.NullabeFieldName #> {

@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="Rfmk.Resolink.Grpc.Tests/Rfmk.Resolink.Grpc.Tests.csproj" />
   <Project Path="Rfmk.Resolink.Grpc/Rfmk.Resolink.Grpc.csproj" />
 </Solution>

@@ -9,7 +9,7 @@
 
 syntax = "proto3";
 
-package rfmk.resonite;
+package rfmk.resolink;
 
 message Color {
   float r = 1;
