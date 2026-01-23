@@ -1,5 +1,5 @@
-using ResoniteLink;
 using Rfmk.Resolink.Grpc;
+using Rfmk.Resolink.Grpc.Link;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +8,7 @@ builder.Services.AddOptions<BridgeOptions>()
     .Bind(builder.Configuration.GetSection("Bridge"))
     .ValidateDataAnnotations()
     .ValidateOnStart();
-builder.Services.AddSingleton<LinkInterface>();
+builder.Services.AddSingleton<Connection>();
 builder.Services.AddHostedService<StartupConnection>();
 
 var app = builder.Build();
