@@ -35,77 +35,80 @@ message Color32 {
 
 // Example: 12345.6789 -> { units = 12345, nanos = 678900000 }
 message Decimal {
-    // Whole units part of the amount
-    int64 units = 1;
+  // Whole units part of the amount
+  int64 units = 1;
 
-    // Nano units of the amount (10^-9)
-    // Must be same sign as units
-    sfixed32 nanos = 2;
+  // Nano units of the amount (10^-9)
+  // Must be same sign as units
+  sfixed32 nanos = 2;
 }
 
 <#
-    foreach(var baseType in TypeMetadata.QuaternionTypes)
-    {
-        string quatType = baseType + "Q";
+  foreach (var baseType in TypeMetadata.QuaternionTypes)
+  {
+    string quatType = baseType + "Q";
 #>
 message <#= WordUpper(quatType) #> {
 <#
-            for(int n = 0; n < 4; n++)
-            {
-                var e = "xyzw"[n];
+    for (int n = 0; n < 4; n++)
+    {
+      var e = "xyzw"[n];
 #>
-  <#= TypeMetadata.ProtoMetadata(baseType).ProtoType #> <#=e#> = <#=n + 1#>;
+  <#= TypeMetadata.ProtoMetadata(baseType).ProtoType #> <#= e #> = <#= n + 1 #>;
 <#
-            }
+    }
+#>
+}
+
+<#
+  }
+
+  foreach (var baseType in TypeMetadata.VectorTypes)
+  {
+    for (int dim = 2; dim <= 4; dim++)
+    {
+      string vectorType = baseType + dim;
+#>
+message <#= WordUpper(vectorType) #> {
+<#
+      for (int n = 0; n < dim; n++)
+      {
+        var e = "xyzw"[n];
+#>
+  <#=
+                    TypeMetadata.ProtoMetadata(baseType).ProtoType #> <#= e #> = <#= n + 1 #>;
+<#
+      }
 #>
 }
 
 <#
     }
+  }
 
-    foreach(var baseType in TypeMetadata.VectorTypes)
+  foreach (var baseType in TypeMetadata.MatrixTypes)
+  {
+    for (int dim = 2; dim <= 4; dim++)
     {
-        for(int dim = 2; dim <= 4; dim++)
+      string matrixType = baseType + dim + "x" + dim;
+#>
+message <#= WordUpper(matrixType) #> {
+<#
+      var ind = 1;
+      for (int c = 0; c < dim; c++)
+      {
+        for (int r = 0; r < dim; r++)
         {
-            string vectorType = baseType + dim;
+          var e = $"m{c}{r}";
 #>
-message <#= WordUpper(vectorType)#> {
-<#
-                for(int n = 0; n < dim; n++)
-                {
-                    var e = "xyzw"[n];
-#>
-  <#= TypeMetadata.ProtoMetadata(baseType).ProtoType #> <#=e#> = <#=n + 1#>;
-<#
-                }
-#>
-}
-
+  <#= baseType #> <#= e #> = <#= ind++ #>;
 <#
         }
-    }
-    
-foreach(var baseType in TypeMetadata.MatrixTypes)
-{
-    for(int dim = 2; dim <= 4; dim++)
-    {
-        string matrixType = baseType + dim + "x" + dim;
-#>
-message <#= WordUpper(matrixType)#> {
-<#
-            var ind = 1;
-            for(int c = 0; c < dim; c++)
-                for(int r = 0; r < dim; r++)
-                {
-                    var e = $"m{c}{r}";
-#>
-  <#=baseType#> <#=e#> = <#=ind++#>;
-<#
-                }
+      }
 #>
 }
 
 <#
     }
-}
+  }
 #>
