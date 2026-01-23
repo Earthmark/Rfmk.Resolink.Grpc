@@ -2,9 +2,10 @@ syntax = "proto3";
 
 package rfmk.resolink;
 
+import "google/protobuf/empty.proto";
+
 import "assets.proto";
 import "models.proto";
-import "google/protobuf/empty.proto";
 
 service LinkService {
   rpc GetSlot (GetSlotRequest) returns (Slot) {}

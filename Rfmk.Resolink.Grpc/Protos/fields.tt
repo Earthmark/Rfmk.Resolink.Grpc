@@ -47,7 +47,7 @@ message Member {
 #>
     <#= m.NullabeFieldName #> null_<#= m.Name #> = <#= startIndex++ #>;
 <#
-        }
+    }
   }
 #>
   }
@@ -90,9 +90,9 @@ message FieldNullableEnum {
 }
 
 <#
-    foreach (var type in TypeMetadata.PrimitiveTypes)
-    {
-        var m = TypeMetadata.ProtoMetadata(type);
+  foreach (var type in TypeMetadata.PrimitiveTypes)
+  {
+    var m = TypeMetadata.ProtoMetadata(type);
 #>
 message <#= m.FieldName #> {
   string id = 1;
@@ -105,8 +105,8 @@ message <#= m.RepeatedName #> {
 }
 
 <#
-        if (!TypeMetadata.NonNullableTypes.Contains(type))
-        {
+    if (!TypeMetadata.NonNullableTypes.Contains(type))
+    {
 #>
 message <#= m.NullabeFieldName #> {
   string id = 1;
@@ -114,6 +114,6 @@ message <#= m.NullabeFieldName #> {
 }
 
 <#
-        }
     }
+  }
 #>

@@ -12,17 +12,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Converters\Primitives.tt">
+    <None Update="Converters\Convert_Primitives.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Primitives.cs</LastGenOutput>
+      <LastGenOutput>Convert_Primitives.cs</LastGenOutput>
     </None>
-    <None Update="Converters\Fields.tt">
+    <None Update="Converters\Convert_Fields.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Fields.cs</LastGenOutput>
+      <LastGenOutput>Convert_Fields.cs</LastGenOutput>
     </None>
-    <None Update="Converters\Member.tt">
+    <None Update="Converters\Convert_Member.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Member.cs</LastGenOutput>
+      <LastGenOutput>Convert_Member.cs</LastGenOutput>
     </None>
     <None Update="Protos\fields.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -39,30 +39,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Converters\Primitives.cs">
+    <Compile Update="Converters\Convert_Primitives.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>Primitives.tt</DependentUpon>
+      <DependentUpon>Convert_Primitives.tt</DependentUpon>
     </Compile>
-    <Compile Update="Converters\Fields.cs">
+    <Compile Update="Converters\Convert_Fields.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>Fields.tt</DependentUpon>
+      <DependentUpon>Convert_Fields.tt</DependentUpon>
     </Compile>
-    <Compile Update="Converters\Fields.cs">
-      <AutoGen>True</AutoGen>
+    <Compile Update="Converters\Convert_Member.cs">
       <DesignTime>True</DesignTime>
-      <DependentUpon>Fields.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Converters\Member.cs">
       <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Member.tt</DependentUpon>
-    </Compile>
-    <Compile Update="Converters\Member.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Member.tt</DependentUpon>
+      <DependentUpon>Convert_Member.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 

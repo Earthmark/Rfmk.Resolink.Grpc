@@ -11,50 +11,43 @@
 namespace Rfmk.Resolink.Grpc.Converters;
 
 public static partial class Convert
-{<#
-foreach(var type in TypeMetadata.PrimitiveTypes)
 {
+<#
+  foreach(var type in TypeMetadata.PrimitiveTypes)
+  {
     var m = TypeMetadata.ProtoMetadata(type);
     var toProtoCall = m.CallConverters ? ".ToProto()" : "";
     var toModelCall = !m.UpcastNeeded && m.CallConverters ? ".ToModel()" : "";
-    #>
+#>
 
-    private static <#= m.FieldName #> ToProto(this ResoniteLink.Field_<#=type#> self)
+    private static <#= m.FieldName #> ToProto(this ResoniteLink.Field_<#=type#> self) => new()
     {
-        return new <#= m.FieldName #> {
-          Id = self.ID,
-          Value = self.Value<#= toProtoCall #>,
-        };
-    }
+        Id = self.ID,
+        Value = self.Value<#= toProtoCall #>,
+    };
 
-    private static ResoniteLink.Field_<#=type#> ToModel(this <#= m.FieldName #> self)
+    private static ResoniteLink.Field_<#=type#> ToModel(this <#= m.FieldName #> self) => new()
     {
-        return new ResoniteLink.Field_<#=type#> {
-          ID = self.Id,
-          Value = <#= m.UpcastNeeded ? $"({type})" : "" #>self.Value<#= toModelCall #>,
-        };
-    }
+        ID = self.Id,
+        Value = <#= m.UpcastNeeded ? $"({type})" : "" #>self.Value<#= toModelCall #>,
+    };
 
-    private static <#= m.RepeatedName #> ToProto(this ResoniteLink.Array_<#=type#> self)
+    private static <#= m.RepeatedName #> ToProto(this ResoniteLink.Array_<#=type#> self) => new()
     {
-        return new <#= m.RepeatedName #> {
-          Id = self.ID,
-          Values = { self.Values.Select(v => v.ToProto()) },
-        };
-    }
+        Id = self.ID,
+        Values = { self.Values.Select(v => v.ToProto()) },
+    };
 
-    private static ResoniteLink.Array_<#=type#> ToModel(this <#= m.RepeatedName #> self)
+    private static ResoniteLink.Array_<#=type#> ToModel(this <#= m.RepeatedName #> self) => new()
     {
-        return new ResoniteLink.Array_<#=type#> {
-          ID = self.Id,
-          Values = self.Values<#= m.UpcastNeeded ? $".Select(v => ({type})v)" : m.CallConverters ? ".Select(v => v.ToModel())" : "" #>.ToList(),
-        };
-    }
-    <#
+        ID = self.Id,
+        Values = self.Values<#= m.UpcastNeeded ? $".Select(v => ({type})v)" : m.CallConverters ? ".Select(v => v.ToModel())" : "" #>.ToList(),
+    };
+<#
     if (!TypeMetadata.NonNullableTypes.Contains(type))
     {
-    var nullableLinkName = $"ResoniteLink.Field_Nullable_{type}";
-    #>
+      var nullableLinkName = $"ResoniteLink.Field_Nullable_{type}";
+#>
 
     private static <#= m.NullabeFieldName #> ToProto(this <#=nullableLinkName#> self)
     {
@@ -77,7 +70,7 @@ foreach(var type in TypeMetadata.PrimitiveTypes)
         }
         return result;
     }
-    <#
+<#
     }
 }
 #>
