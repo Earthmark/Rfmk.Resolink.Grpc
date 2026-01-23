@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.Options;
-using ResoniteLink;
+using Rfmk.Resolink.Grpc.Link;
 
 namespace Rfmk.Resolink.Grpc;
 
 public class StartupConnection(
-    LinkInterface link,
+    Connection connection,
     IOptions<BridgeOptions> opts,
     IHostLifetime lifetime,
     ILogger<StartupConnection> logger
@@ -14,7 +14,7 @@ public class StartupConnection(
     {
         try
         {
-            await link.Connect(opts.Value.HostUrl, cancellationToken);
+            await connection.ConnectAsync(opts.Value.HostUrl, cancellationToken);
             logger.LogInformation("Connected to ResoLink socket.");
         }
         catch (Exception ex)
