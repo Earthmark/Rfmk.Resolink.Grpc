@@ -1,8 +1,20 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.Extensions.Options;
 
 namespace Rfmk.Resolink.Grpc;
 
 public class BridgeOptions
 {
-    [Required] public Uri HostUrl { get; set; } = null!;
+    public Uri? HostUrl { get; set; } = null;
+    
+    public int? Port { get; set; } = null;
+}
+
+public class BridgeOptionsValidator : IValidateOptions<BridgeOptions>
+{
+    public ValidateOptionsResult Validate(string? name, BridgeOptions options)
+    {
+        if (options.HostUrl != null || options.Port != null) { return ValidateOptionsResult.Success; }
+
+        return ValidateOptionsResult.Fail("Either HostUrl or Port must be set.");
+    }
 }

@@ -8,13 +8,17 @@ public class StartupConnection(
     IOptions<BridgeOptions> opts,
     IHostLifetime lifetime,
     ILogger<StartupConnection> logger
-    ) : IHostedService
+) : IHostedService
 {
     public async Task StartAsync(CancellationToken cancellationToken)
     {
+        var targetURl = opts.Value.HostUrl ?? (opts.Value.Port != null
+            ? new Uri($"ws://localhost:{opts.Value.Port}")
+            : throw new InvalidOperationException("Either HostUrl or Port must be set."));
+
         try
         {
-            await connection.ConnectAsync(opts.Value.HostUrl, cancellationToken);
+            await connection.ConnectAsync(targetURl, cancellationToken);
             logger.LogInformation("Connected to ResoLink socket.");
         }
         catch (Exception ex)

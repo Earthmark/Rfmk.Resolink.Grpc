@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Options;
 using Rfmk.Resolink.Grpc;
 using Rfmk.Resolink.Grpc.Link;
 
@@ -8,8 +9,9 @@ builder.Services.AddOptions<BridgeOptions>()
     .Bind(builder.Configuration.GetSection("Bridge"))
     .ValidateDataAnnotations()
     .ValidateOnStart();
+builder.Services.AddSingleton<IValidateOptions<BridgeOptions>, BridgeOptionsValidator>();
 builder.Services.AddSingleton<Connection>();
-builder.Services.AddHostedService<StartupConnection>();
+builder.Services.AddHostedService<StartupConnection>(); 
 
 var app = builder.Build();
 
