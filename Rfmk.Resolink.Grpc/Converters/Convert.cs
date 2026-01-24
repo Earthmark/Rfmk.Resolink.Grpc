@@ -2,6 +2,66 @@
 
 public static partial class Convert
 {
+    public static GetSessionResponse ToProto(this ResoniteLink.SessionData self) => new()
+    {
+        ResoniteVersion = self.ResoniteVersion,
+        ResoniteLinkVersion = self.ResoniteLinkVersion,
+        UniqueSessionId = self.UniqueSessionId,
+    };
+
+    public static ResoniteLink.GetSlot ToModel(this GetSlotRequest self) => new()
+    {
+        SlotID = self.SlotId,
+        Depth = self.Depth,
+        IncludeComponentData = self.IncludeComponentData
+    };
+
+    public static ResoniteLink.AddSlot ToModel(this AddSlotRequest self) => new()
+    {
+        Data = self.Data.ToModel(),
+    };
+
+    public static ResoniteLink.UpdateSlot ToModel(this UpdateSlotRequest self) => new()
+    {
+        Data = self.Data.ToModel(),
+    };
+
+    public static ResoniteLink.RemoveSlot ToModel(this DeleteSlotRequest self) => new()
+    {
+        SlotID = self.SlotId,
+    };
+
+    public static ResoniteLink.GetComponent ToModel(this GetComponentRequest self) => new()
+    {
+        ComponentID = self.ComponentId,
+    };
+
+    public static ResoniteLink.AddComponent ToModel(this AddComponentRequest self) => new()
+    {
+        ContainerSlotId = self.ContainerSlotId,
+        Data = self.Data.ToModel(),
+    };
+
+    public static ResoniteLink.UpdateComponent ToModel(this UpdateComponentRequest self) => new()
+    {
+        Data = self.Data.ToModel(),
+    };
+
+    public static ResoniteLink.RemoveComponent ToModel(this DeleteComponentRequest self) => new()
+    {
+        ComponentID = self.ComponentId,
+    };
+
+    public static ResoniteLink.ImportTexture2DFile ToModelTexture(this ImportFileRequest self) => new()
+    {
+        FilePath = self.FilePath,
+    };
+
+    public static ResoniteLink.ImportAudioClipFile ToModelAudio(this ImportFileRequest self) => new()
+    {
+        FilePath = self.FilePath,
+    };
+    
     public static Slot ToProto(this ResoniteLink.Slot self) => new()
     {
         Id = self.ID,

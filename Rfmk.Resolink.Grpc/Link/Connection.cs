@@ -1,4 +1,5 @@
 ﻿using System.Threading.Channels;
+using Grpc.Core;
 using ResoniteLink;
 
 namespace Rfmk.Resolink.Grpc.Link;
