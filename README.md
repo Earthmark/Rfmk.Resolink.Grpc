@@ -1,5 +1,7 @@
 ﻿# Rfmk.Resolink.Grpc
 
+[![NuGet version](https://img.shields.io/nuget/v/Rfmk.Resolink.Grpc.svg)](https://www.nuget.org/packages/Rfmk.Resolink.Grpc)
+
 A high-performance [gRPC](https://grpc.io/) proxy for [ResoniteLink](https://github.com/Yellow-Dog-Man/ResoniteLink), exposing ResoniteLink with a strongly-typed [GRPC](https://grpc.io/) and [protobuf](https://protobuf.dev/) API.
 
 ## Getting Started
