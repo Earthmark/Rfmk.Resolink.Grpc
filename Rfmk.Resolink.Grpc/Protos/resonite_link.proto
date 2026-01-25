@@ -8,6 +8,8 @@ import "assets.proto";
 import "models.proto";
 
 service LinkService {
+  rpc GetSession (google.protobuf.Empty) returns (GetSessionResponse) {}
+  
   rpc GetSlot (GetSlotRequest) returns (Slot) {}
   rpc AddSlot (AddSlotRequest) returns (google.protobuf.Empty) {}
   rpc UpdateSlot (UpdateSlotRequest) returns (google.protobuf.Empty) {}
@@ -25,6 +27,12 @@ service LinkService {
   rpc ImportTexture (ImportTextureRequest) returns (AssetResponse);
   rpc ImportMesh (ImportMeshRequest) returns (AssetResponse);
   rpc ImportAudioClip (ImportAudioClipRequest) returns (AssetResponse);
+}
+
+message GetSessionResponse {
+  string resonite_version = 1;
+  string resonite_link_version = 2;
+  string unique_session_id = 3;
 }
 
 message GetSlotRequest {
