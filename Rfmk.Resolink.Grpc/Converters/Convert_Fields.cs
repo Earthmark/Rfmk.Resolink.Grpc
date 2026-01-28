@@ -34,22 +34,26 @@ public static partial class Convert
 
     private static FieldNullableByte ToProto(this ResoniteLink.Field_Nullable_byte self)
     {
-        var result = new FieldNullableByte {
-          Id = self.ID,
+        var result = new FieldNullableByte
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_byte ToModel(this FieldNullableByte self)
     {
-        var result = new ResoniteLink.Field_Nullable_byte {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_byte
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = (byte?)self.Value;
+        if (self.Value != null)
+        {
+            result.Value = (byte?)self.Value;
         }
         return result;
     }
@@ -80,22 +84,26 @@ public static partial class Convert
 
     private static FieldNullableUShort ToProto(this ResoniteLink.Field_Nullable_ushort self)
     {
-        var result = new FieldNullableUShort {
-          Id = self.ID,
+        var result = new FieldNullableUShort
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_ushort ToModel(this FieldNullableUShort self)
     {
-        var result = new ResoniteLink.Field_Nullable_ushort {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_ushort
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = (ushort?)self.Value;
+        if (self.Value != null)
+        {
+            result.Value = (ushort?)self.Value;
         }
         return result;
     }
@@ -126,22 +134,26 @@ public static partial class Convert
 
     private static FieldNullableUInt ToProto(this ResoniteLink.Field_Nullable_uint self)
     {
-        var result = new FieldNullableUInt {
-          Id = self.ID,
+        var result = new FieldNullableUInt
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value;
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value;
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_uint ToModel(this FieldNullableUInt self)
     {
-        var result = new ResoniteLink.Field_Nullable_uint {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_uint
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value;
+        if (self.Value != null)
+        {
+            result.Value = self.Value;
         }
         return result;
     }
@@ -172,22 +184,26 @@ public static partial class Convert
 
     private static FieldNullableULong ToProto(this ResoniteLink.Field_Nullable_ulong self)
     {
-        var result = new FieldNullableULong {
-          Id = self.ID,
+        var result = new FieldNullableULong
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value;
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value;
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_ulong ToModel(this FieldNullableULong self)
     {
-        var result = new ResoniteLink.Field_Nullable_ulong {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_ulong
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value;
+        if (self.Value != null)
+        {
+            result.Value = self.Value;
         }
         return result;
     }
@@ -218,22 +234,26 @@ public static partial class Convert
 
     private static FieldNullableSByte ToProto(this ResoniteLink.Field_Nullable_sbyte self)
     {
-        var result = new FieldNullableSByte {
-          Id = self.ID,
+        var result = new FieldNullableSByte
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_sbyte ToModel(this FieldNullableSByte self)
     {
-        var result = new ResoniteLink.Field_Nullable_sbyte {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_sbyte
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = (sbyte?)self.Value;
+        if (self.Value != null)
+        {
+            result.Value = (sbyte?)self.Value;
         }
         return result;
     }
@@ -264,22 +284,26 @@ public static partial class Convert
 
     private static FieldNullableShort ToProto(this ResoniteLink.Field_Nullable_short self)
     {
-        var result = new FieldNullableShort {
-          Id = self.ID,
+        var result = new FieldNullableShort
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_short ToModel(this FieldNullableShort self)
     {
-        var result = new ResoniteLink.Field_Nullable_short {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_short
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = (short?)self.Value;
+        if (self.Value != null)
+        {
+            result.Value = (short?)self.Value;
         }
         return result;
     }
@@ -310,22 +334,26 @@ public static partial class Convert
 
     private static FieldNullableInt ToProto(this ResoniteLink.Field_Nullable_int self)
     {
-        var result = new FieldNullableInt {
-          Id = self.ID,
+        var result = new FieldNullableInt
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value;
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value;
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_int ToModel(this FieldNullableInt self)
     {
-        var result = new ResoniteLink.Field_Nullable_int {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_int
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value;
+        if (self.Value != null)
+        {
+            result.Value = self.Value;
         }
         return result;
     }
@@ -356,22 +384,26 @@ public static partial class Convert
 
     private static FieldNullableLong ToProto(this ResoniteLink.Field_Nullable_long self)
     {
-        var result = new FieldNullableLong {
-          Id = self.ID,
+        var result = new FieldNullableLong
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value;
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value;
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_long ToModel(this FieldNullableLong self)
     {
-        var result = new ResoniteLink.Field_Nullable_long {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_long
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value;
+        if (self.Value != null)
+        {
+            result.Value = self.Value;
         }
         return result;
     }
@@ -402,22 +434,26 @@ public static partial class Convert
 
     private static FieldNullableFloat ToProto(this ResoniteLink.Field_Nullable_float self)
     {
-        var result = new FieldNullableFloat {
-          Id = self.ID,
+        var result = new FieldNullableFloat
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value;
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value;
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_float ToModel(this FieldNullableFloat self)
     {
-        var result = new ResoniteLink.Field_Nullable_float {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_float
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value;
+        if (self.Value != null)
+        {
+            result.Value = self.Value;
         }
         return result;
     }
@@ -448,22 +484,26 @@ public static partial class Convert
 
     private static FieldNullableDouble ToProto(this ResoniteLink.Field_Nullable_double self)
     {
-        var result = new FieldNullableDouble {
-          Id = self.ID,
+        var result = new FieldNullableDouble
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value;
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value;
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_double ToModel(this FieldNullableDouble self)
     {
-        var result = new ResoniteLink.Field_Nullable_double {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_double
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value;
+        if (self.Value != null)
+        {
+            result.Value = self.Value;
         }
         return result;
     }
@@ -494,22 +534,26 @@ public static partial class Convert
 
     private static FieldNullableDecimal ToProto(this ResoniteLink.Field_Nullable_decimal self)
     {
-        var result = new FieldNullableDecimal {
-          Id = self.ID,
+        var result = new FieldNullableDecimal
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_decimal ToModel(this FieldNullableDecimal self)
     {
-        var result = new ResoniteLink.Field_Nullable_decimal {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_decimal
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -540,22 +584,26 @@ public static partial class Convert
 
     private static FieldNullableBool ToProto(this ResoniteLink.Field_Nullable_bool self)
     {
-        var result = new FieldNullableBool {
-          Id = self.ID,
+        var result = new FieldNullableBool
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value;
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value;
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_bool ToModel(this FieldNullableBool self)
     {
-        var result = new ResoniteLink.Field_Nullable_bool {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_bool
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value;
+        if (self.Value != null)
+        {
+            result.Value = self.Value;
         }
         return result;
     }
@@ -586,22 +634,26 @@ public static partial class Convert
 
     private static FieldNullableChar ToProto(this ResoniteLink.Field_Nullable_char self)
     {
-        var result = new FieldNullableChar {
-          Id = self.ID,
+        var result = new FieldNullableChar
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_char ToModel(this FieldNullableChar self)
     {
-        var result = new ResoniteLink.Field_Nullable_char {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_char
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = (char?)self.Value;
+        if (self.Value != null)
+        {
+            result.Value = (char?)self.Value;
         }
         return result;
     }
@@ -680,22 +732,26 @@ public static partial class Convert
 
     private static FieldNullableDateTime ToProto(this ResoniteLink.Field_Nullable_DateTime self)
     {
-        var result = new FieldNullableDateTime {
-          Id = self.ID,
+        var result = new FieldNullableDateTime
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_DateTime ToModel(this FieldNullableDateTime self)
     {
-        var result = new ResoniteLink.Field_Nullable_DateTime {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_DateTime
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -726,22 +782,26 @@ public static partial class Convert
 
     private static FieldNullableTimeSpan ToProto(this ResoniteLink.Field_Nullable_TimeSpan self)
     {
-        var result = new FieldNullableTimeSpan {
-          Id = self.ID,
+        var result = new FieldNullableTimeSpan
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_TimeSpan ToModel(this FieldNullableTimeSpan self)
     {
-        var result = new ResoniteLink.Field_Nullable_TimeSpan {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_TimeSpan
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -772,22 +832,26 @@ public static partial class Convert
 
     private static FieldNullableColor ToProto(this ResoniteLink.Field_Nullable_color self)
     {
-        var result = new FieldNullableColor {
-          Id = self.ID,
+        var result = new FieldNullableColor
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_color ToModel(this FieldNullableColor self)
     {
-        var result = new ResoniteLink.Field_Nullable_color {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_color
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -818,22 +882,26 @@ public static partial class Convert
 
     private static FieldNullableColorX ToProto(this ResoniteLink.Field_Nullable_colorX self)
     {
-        var result = new FieldNullableColorX {
-          Id = self.ID,
+        var result = new FieldNullableColorX
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_colorX ToModel(this FieldNullableColorX self)
     {
-        var result = new ResoniteLink.Field_Nullable_colorX {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_colorX
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -864,22 +932,26 @@ public static partial class Convert
 
     private static FieldNullableColor32 ToProto(this ResoniteLink.Field_Nullable_color32 self)
     {
-        var result = new FieldNullableColor32 {
-          Id = self.ID,
+        var result = new FieldNullableColor32
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_color32 ToModel(this FieldNullableColor32 self)
     {
-        var result = new ResoniteLink.Field_Nullable_color32 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_color32
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -910,22 +982,26 @@ public static partial class Convert
 
     private static FieldNullableFloat2 ToProto(this ResoniteLink.Field_Nullable_float2 self)
     {
-        var result = new FieldNullableFloat2 {
-          Id = self.ID,
+        var result = new FieldNullableFloat2
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_float2 ToModel(this FieldNullableFloat2 self)
     {
-        var result = new ResoniteLink.Field_Nullable_float2 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_float2
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -956,22 +1032,26 @@ public static partial class Convert
 
     private static FieldNullableDouble2 ToProto(this ResoniteLink.Field_Nullable_double2 self)
     {
-        var result = new FieldNullableDouble2 {
-          Id = self.ID,
+        var result = new FieldNullableDouble2
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_double2 ToModel(this FieldNullableDouble2 self)
     {
-        var result = new ResoniteLink.Field_Nullable_double2 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_double2
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -1002,22 +1082,26 @@ public static partial class Convert
 
     private static FieldNullableByte2 ToProto(this ResoniteLink.Field_Nullable_byte2 self)
     {
-        var result = new FieldNullableByte2 {
-          Id = self.ID,
+        var result = new FieldNullableByte2
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_byte2 ToModel(this FieldNullableByte2 self)
     {
-        var result = new ResoniteLink.Field_Nullable_byte2 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_byte2
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -1048,22 +1132,26 @@ public static partial class Convert
 
     private static FieldNullableUshort2 ToProto(this ResoniteLink.Field_Nullable_ushort2 self)
     {
-        var result = new FieldNullableUshort2 {
-          Id = self.ID,
+        var result = new FieldNullableUshort2
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_ushort2 ToModel(this FieldNullableUshort2 self)
     {
-        var result = new ResoniteLink.Field_Nullable_ushort2 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_ushort2
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -1094,22 +1182,26 @@ public static partial class Convert
 
     private static FieldNullableUint2 ToProto(this ResoniteLink.Field_Nullable_uint2 self)
     {
-        var result = new FieldNullableUint2 {
-          Id = self.ID,
+        var result = new FieldNullableUint2
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_uint2 ToModel(this FieldNullableUint2 self)
     {
-        var result = new ResoniteLink.Field_Nullable_uint2 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_uint2
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -1140,22 +1232,26 @@ public static partial class Convert
 
     private static FieldNullableUlong2 ToProto(this ResoniteLink.Field_Nullable_ulong2 self)
     {
-        var result = new FieldNullableUlong2 {
-          Id = self.ID,
+        var result = new FieldNullableUlong2
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_ulong2 ToModel(this FieldNullableUlong2 self)
     {
-        var result = new ResoniteLink.Field_Nullable_ulong2 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_ulong2
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -1186,22 +1282,26 @@ public static partial class Convert
 
     private static FieldNullableSbyte2 ToProto(this ResoniteLink.Field_Nullable_sbyte2 self)
     {
-        var result = new FieldNullableSbyte2 {
-          Id = self.ID,
+        var result = new FieldNullableSbyte2
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_sbyte2 ToModel(this FieldNullableSbyte2 self)
     {
-        var result = new ResoniteLink.Field_Nullable_sbyte2 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_sbyte2
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -1232,22 +1332,26 @@ public static partial class Convert
 
     private static FieldNullableShort2 ToProto(this ResoniteLink.Field_Nullable_short2 self)
     {
-        var result = new FieldNullableShort2 {
-          Id = self.ID,
+        var result = new FieldNullableShort2
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_short2 ToModel(this FieldNullableShort2 self)
     {
-        var result = new ResoniteLink.Field_Nullable_short2 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_short2
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -1278,22 +1382,26 @@ public static partial class Convert
 
     private static FieldNullableInt2 ToProto(this ResoniteLink.Field_Nullable_int2 self)
     {
-        var result = new FieldNullableInt2 {
-          Id = self.ID,
+        var result = new FieldNullableInt2
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_int2 ToModel(this FieldNullableInt2 self)
     {
-        var result = new ResoniteLink.Field_Nullable_int2 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_int2
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -1324,22 +1432,26 @@ public static partial class Convert
 
     private static FieldNullableLong2 ToProto(this ResoniteLink.Field_Nullable_long2 self)
     {
-        var result = new FieldNullableLong2 {
-          Id = self.ID,
+        var result = new FieldNullableLong2
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_long2 ToModel(this FieldNullableLong2 self)
     {
-        var result = new ResoniteLink.Field_Nullable_long2 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_long2
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -1370,22 +1482,26 @@ public static partial class Convert
 
     private static FieldNullableBool2 ToProto(this ResoniteLink.Field_Nullable_bool2 self)
     {
-        var result = new FieldNullableBool2 {
-          Id = self.ID,
+        var result = new FieldNullableBool2
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_bool2 ToModel(this FieldNullableBool2 self)
     {
-        var result = new ResoniteLink.Field_Nullable_bool2 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_bool2
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -1416,22 +1532,26 @@ public static partial class Convert
 
     private static FieldNullableFloat3 ToProto(this ResoniteLink.Field_Nullable_float3 self)
     {
-        var result = new FieldNullableFloat3 {
-          Id = self.ID,
+        var result = new FieldNullableFloat3
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_float3 ToModel(this FieldNullableFloat3 self)
     {
-        var result = new ResoniteLink.Field_Nullable_float3 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_float3
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -1462,22 +1582,26 @@ public static partial class Convert
 
     private static FieldNullableDouble3 ToProto(this ResoniteLink.Field_Nullable_double3 self)
     {
-        var result = new FieldNullableDouble3 {
-          Id = self.ID,
+        var result = new FieldNullableDouble3
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_double3 ToModel(this FieldNullableDouble3 self)
     {
-        var result = new ResoniteLink.Field_Nullable_double3 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_double3
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -1508,22 +1632,26 @@ public static partial class Convert
 
     private static FieldNullableByte3 ToProto(this ResoniteLink.Field_Nullable_byte3 self)
     {
-        var result = new FieldNullableByte3 {
-          Id = self.ID,
+        var result = new FieldNullableByte3
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_byte3 ToModel(this FieldNullableByte3 self)
     {
-        var result = new ResoniteLink.Field_Nullable_byte3 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_byte3
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -1554,22 +1682,26 @@ public static partial class Convert
 
     private static FieldNullableUshort3 ToProto(this ResoniteLink.Field_Nullable_ushort3 self)
     {
-        var result = new FieldNullableUshort3 {
-          Id = self.ID,
+        var result = new FieldNullableUshort3
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_ushort3 ToModel(this FieldNullableUshort3 self)
     {
-        var result = new ResoniteLink.Field_Nullable_ushort3 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_ushort3
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -1600,22 +1732,26 @@ public static partial class Convert
 
     private static FieldNullableUint3 ToProto(this ResoniteLink.Field_Nullable_uint3 self)
     {
-        var result = new FieldNullableUint3 {
-          Id = self.ID,
+        var result = new FieldNullableUint3
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_uint3 ToModel(this FieldNullableUint3 self)
     {
-        var result = new ResoniteLink.Field_Nullable_uint3 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_uint3
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -1646,22 +1782,26 @@ public static partial class Convert
 
     private static FieldNullableUlong3 ToProto(this ResoniteLink.Field_Nullable_ulong3 self)
     {
-        var result = new FieldNullableUlong3 {
-          Id = self.ID,
+        var result = new FieldNullableUlong3
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_ulong3 ToModel(this FieldNullableUlong3 self)
     {
-        var result = new ResoniteLink.Field_Nullable_ulong3 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_ulong3
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -1692,22 +1832,26 @@ public static partial class Convert
 
     private static FieldNullableSbyte3 ToProto(this ResoniteLink.Field_Nullable_sbyte3 self)
     {
-        var result = new FieldNullableSbyte3 {
-          Id = self.ID,
+        var result = new FieldNullableSbyte3
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_sbyte3 ToModel(this FieldNullableSbyte3 self)
     {
-        var result = new ResoniteLink.Field_Nullable_sbyte3 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_sbyte3
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -1738,22 +1882,26 @@ public static partial class Convert
 
     private static FieldNullableShort3 ToProto(this ResoniteLink.Field_Nullable_short3 self)
     {
-        var result = new FieldNullableShort3 {
-          Id = self.ID,
+        var result = new FieldNullableShort3
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_short3 ToModel(this FieldNullableShort3 self)
     {
-        var result = new ResoniteLink.Field_Nullable_short3 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_short3
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -1784,22 +1932,26 @@ public static partial class Convert
 
     private static FieldNullableInt3 ToProto(this ResoniteLink.Field_Nullable_int3 self)
     {
-        var result = new FieldNullableInt3 {
-          Id = self.ID,
+        var result = new FieldNullableInt3
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_int3 ToModel(this FieldNullableInt3 self)
     {
-        var result = new ResoniteLink.Field_Nullable_int3 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_int3
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -1830,22 +1982,26 @@ public static partial class Convert
 
     private static FieldNullableLong3 ToProto(this ResoniteLink.Field_Nullable_long3 self)
     {
-        var result = new FieldNullableLong3 {
-          Id = self.ID,
+        var result = new FieldNullableLong3
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_long3 ToModel(this FieldNullableLong3 self)
     {
-        var result = new ResoniteLink.Field_Nullable_long3 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_long3
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -1876,22 +2032,26 @@ public static partial class Convert
 
     private static FieldNullableBool3 ToProto(this ResoniteLink.Field_Nullable_bool3 self)
     {
-        var result = new FieldNullableBool3 {
-          Id = self.ID,
+        var result = new FieldNullableBool3
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_bool3 ToModel(this FieldNullableBool3 self)
     {
-        var result = new ResoniteLink.Field_Nullable_bool3 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_bool3
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -1922,22 +2082,26 @@ public static partial class Convert
 
     private static FieldNullableFloat4 ToProto(this ResoniteLink.Field_Nullable_float4 self)
     {
-        var result = new FieldNullableFloat4 {
-          Id = self.ID,
+        var result = new FieldNullableFloat4
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_float4 ToModel(this FieldNullableFloat4 self)
     {
-        var result = new ResoniteLink.Field_Nullable_float4 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_float4
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -1968,22 +2132,26 @@ public static partial class Convert
 
     private static FieldNullableDouble4 ToProto(this ResoniteLink.Field_Nullable_double4 self)
     {
-        var result = new FieldNullableDouble4 {
-          Id = self.ID,
+        var result = new FieldNullableDouble4
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_double4 ToModel(this FieldNullableDouble4 self)
     {
-        var result = new ResoniteLink.Field_Nullable_double4 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_double4
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -2014,22 +2182,26 @@ public static partial class Convert
 
     private static FieldNullableByte4 ToProto(this ResoniteLink.Field_Nullable_byte4 self)
     {
-        var result = new FieldNullableByte4 {
-          Id = self.ID,
+        var result = new FieldNullableByte4
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_byte4 ToModel(this FieldNullableByte4 self)
     {
-        var result = new ResoniteLink.Field_Nullable_byte4 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_byte4
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -2060,22 +2232,26 @@ public static partial class Convert
 
     private static FieldNullableUshort4 ToProto(this ResoniteLink.Field_Nullable_ushort4 self)
     {
-        var result = new FieldNullableUshort4 {
-          Id = self.ID,
+        var result = new FieldNullableUshort4
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_ushort4 ToModel(this FieldNullableUshort4 self)
     {
-        var result = new ResoniteLink.Field_Nullable_ushort4 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_ushort4
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -2106,22 +2282,26 @@ public static partial class Convert
 
     private static FieldNullableUint4 ToProto(this ResoniteLink.Field_Nullable_uint4 self)
     {
-        var result = new FieldNullableUint4 {
-          Id = self.ID,
+        var result = new FieldNullableUint4
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_uint4 ToModel(this FieldNullableUint4 self)
     {
-        var result = new ResoniteLink.Field_Nullable_uint4 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_uint4
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -2152,22 +2332,26 @@ public static partial class Convert
 
     private static FieldNullableUlong4 ToProto(this ResoniteLink.Field_Nullable_ulong4 self)
     {
-        var result = new FieldNullableUlong4 {
-          Id = self.ID,
+        var result = new FieldNullableUlong4
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_ulong4 ToModel(this FieldNullableUlong4 self)
     {
-        var result = new ResoniteLink.Field_Nullable_ulong4 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_ulong4
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -2198,22 +2382,26 @@ public static partial class Convert
 
     private static FieldNullableSbyte4 ToProto(this ResoniteLink.Field_Nullable_sbyte4 self)
     {
-        var result = new FieldNullableSbyte4 {
-          Id = self.ID,
+        var result = new FieldNullableSbyte4
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_sbyte4 ToModel(this FieldNullableSbyte4 self)
     {
-        var result = new ResoniteLink.Field_Nullable_sbyte4 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_sbyte4
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -2244,22 +2432,26 @@ public static partial class Convert
 
     private static FieldNullableShort4 ToProto(this ResoniteLink.Field_Nullable_short4 self)
     {
-        var result = new FieldNullableShort4 {
-          Id = self.ID,
+        var result = new FieldNullableShort4
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_short4 ToModel(this FieldNullableShort4 self)
     {
-        var result = new ResoniteLink.Field_Nullable_short4 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_short4
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -2290,22 +2482,26 @@ public static partial class Convert
 
     private static FieldNullableInt4 ToProto(this ResoniteLink.Field_Nullable_int4 self)
     {
-        var result = new FieldNullableInt4 {
-          Id = self.ID,
+        var result = new FieldNullableInt4
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_int4 ToModel(this FieldNullableInt4 self)
     {
-        var result = new ResoniteLink.Field_Nullable_int4 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_int4
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -2336,22 +2532,26 @@ public static partial class Convert
 
     private static FieldNullableLong4 ToProto(this ResoniteLink.Field_Nullable_long4 self)
     {
-        var result = new FieldNullableLong4 {
-          Id = self.ID,
+        var result = new FieldNullableLong4
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_long4 ToModel(this FieldNullableLong4 self)
     {
-        var result = new ResoniteLink.Field_Nullable_long4 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_long4
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -2382,22 +2582,26 @@ public static partial class Convert
 
     private static FieldNullableBool4 ToProto(this ResoniteLink.Field_Nullable_bool4 self)
     {
-        var result = new FieldNullableBool4 {
-          Id = self.ID,
+        var result = new FieldNullableBool4
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_bool4 ToModel(this FieldNullableBool4 self)
     {
-        var result = new ResoniteLink.Field_Nullable_bool4 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_bool4
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -2428,22 +2632,26 @@ public static partial class Convert
 
     private static FieldNullableFloatQ ToProto(this ResoniteLink.Field_Nullable_floatQ self)
     {
-        var result = new FieldNullableFloatQ {
-          Id = self.ID,
+        var result = new FieldNullableFloatQ
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_floatQ ToModel(this FieldNullableFloatQ self)
     {
-        var result = new ResoniteLink.Field_Nullable_floatQ {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_floatQ
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -2474,22 +2682,26 @@ public static partial class Convert
 
     private static FieldNullableDoubleQ ToProto(this ResoniteLink.Field_Nullable_doubleQ self)
     {
-        var result = new FieldNullableDoubleQ {
-          Id = self.ID,
+        var result = new FieldNullableDoubleQ
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_doubleQ ToModel(this FieldNullableDoubleQ self)
     {
-        var result = new ResoniteLink.Field_Nullable_doubleQ {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_doubleQ
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -2520,22 +2732,26 @@ public static partial class Convert
 
     private static FieldNullableFloat2x2 ToProto(this ResoniteLink.Field_Nullable_float2x2 self)
     {
-        var result = new FieldNullableFloat2x2 {
-          Id = self.ID,
+        var result = new FieldNullableFloat2x2
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_float2x2 ToModel(this FieldNullableFloat2x2 self)
     {
-        var result = new ResoniteLink.Field_Nullable_float2x2 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_float2x2
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -2566,22 +2782,26 @@ public static partial class Convert
 
     private static FieldNullableDouble2x2 ToProto(this ResoniteLink.Field_Nullable_double2x2 self)
     {
-        var result = new FieldNullableDouble2x2 {
-          Id = self.ID,
+        var result = new FieldNullableDouble2x2
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_double2x2 ToModel(this FieldNullableDouble2x2 self)
     {
-        var result = new ResoniteLink.Field_Nullable_double2x2 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_double2x2
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -2612,22 +2832,26 @@ public static partial class Convert
 
     private static FieldNullableFloat3x3 ToProto(this ResoniteLink.Field_Nullable_float3x3 self)
     {
-        var result = new FieldNullableFloat3x3 {
-          Id = self.ID,
+        var result = new FieldNullableFloat3x3
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_float3x3 ToModel(this FieldNullableFloat3x3 self)
     {
-        var result = new ResoniteLink.Field_Nullable_float3x3 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_float3x3
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -2658,22 +2882,26 @@ public static partial class Convert
 
     private static FieldNullableDouble3x3 ToProto(this ResoniteLink.Field_Nullable_double3x3 self)
     {
-        var result = new FieldNullableDouble3x3 {
-          Id = self.ID,
+        var result = new FieldNullableDouble3x3
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_double3x3 ToModel(this FieldNullableDouble3x3 self)
     {
-        var result = new ResoniteLink.Field_Nullable_double3x3 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_double3x3
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -2704,22 +2932,26 @@ public static partial class Convert
 
     private static FieldNullableFloat4x4 ToProto(this ResoniteLink.Field_Nullable_float4x4 self)
     {
-        var result = new FieldNullableFloat4x4 {
-          Id = self.ID,
+        var result = new FieldNullableFloat4x4
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_float4x4 ToModel(this FieldNullableFloat4x4 self)
     {
-        var result = new ResoniteLink.Field_Nullable_float4x4 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_float4x4
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }
@@ -2750,22 +2982,26 @@ public static partial class Convert
 
     private static FieldNullableDouble4x4 ToProto(this ResoniteLink.Field_Nullable_double4x4 self)
     {
-        var result = new FieldNullableDouble4x4 {
-          Id = self.ID,
+        var result = new FieldNullableDouble4x4
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value.ToProto();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value.ToProto();
         }
         return result;
     }
 
     private static ResoniteLink.Field_Nullable_double4x4 ToModel(this FieldNullableDouble4x4 self)
     {
-        var result = new ResoniteLink.Field_Nullable_double4x4 {
-          ID = self.Id,
+        var result = new ResoniteLink.Field_Nullable_double4x4
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.ToModel();
+        if (self.Value != null)
+        {
+            result.Value = self.Value.ToModel();
         }
         return result;
     }

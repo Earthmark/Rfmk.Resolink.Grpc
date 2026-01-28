@@ -1,128 +1,82 @@
 ﻿using Grpc.Core;
+using ResoniteLink;
 using Rfmk.Resolink.Grpc.Converters;
-using Rfmk.Resolink.Grpc.Link;
+
+using ProtoEmpty = Google.Protobuf.WellKnownTypes.Empty;
 
 namespace Rfmk.Resolink.Grpc;
 
 public class ResolinkService(
-    Connection connection
+    WsAdapter c,
+    BatchAdaptor adaptor
 ) : LinkService.LinkServiceBase
 {
-    private static T RaiseMissing<T>(T val)
-    {
-        return val ?? throw new RpcException(new Status(StatusCode.InvalidArgument,
+    private static TResponse Convert<TResponse>(Response val) where TResponse : Response =>
+        (TResponse)val ?? throw new RpcException(new Status(StatusCode.InvalidArgument,
             "Did not get a data field back from ResoLink."));
-    }
 
-    public override async Task<GetSessionResponse> GetSession(Google.Protobuf.WellKnownTypes.Empty request,
+    public override Task<BatchResponse> ApplyBatch(BatchRequest request, ServerCallContext context)
+        => adaptor.SendBatch(request, context.CancellationToken);
+
+    public override async Task<GetSessionResponse> GetSession(ProtoEmpty request,
         ServerCallContext context)
-    {
-        var response =
-            await connection.QueueMessageAsync((l) => l.GetSessionData(), context.CancellationToken);
-        return response.ToProto();
-    }
+        => Convert<SessionData>(await await c.SendAsync(new RequestSessionData(), context.CancellationToken)).ToProto();
 
-    public override async Task<Slot> GetSlot(GetSlotRequest request, ServerCallContext context)
-    {
-        var req = request.ToModel();
-        var response = await connection.QueueMessageAsync(l => l.GetSlotData(req), context.CancellationToken);
-        return RaiseMissing(response.Data).ToProto();
-    }
+    public override async Task<Slot> GetSlot(GetSlotRequest request, ServerCallContext context) =>
+        Convert<SlotData>(await await c.SendAsync(request.ToModel(), context.CancellationToken)).Data.ToProto();
 
-    public override async Task<Google.Protobuf.WellKnownTypes.Empty> AddSlot(AddSlotRequest request,
-        ServerCallContext context)
-    {
-        var req = request.ToModel();
-        await connection.QueueMessageAsync(l => l.AddSlot(req));
-        return new Google.Protobuf.WellKnownTypes.Empty();
-    }
+    public override async Task<ProtoEmpty> AddSlot(AddSlotRequest request,
+        ServerCallContext context) =>
+        (await adaptor.SendBatch(new BatchRequest
+        {
+            Mutations = { CreateExpansion.ExpandCreateSlots(request.Data) }
+        }, context.CancellationToken)).ToEmpty();
 
-    public override async Task<Google.Protobuf.WellKnownTypes.Empty> UpdateSlot(UpdateSlotRequest request,
-        ServerCallContext context)
-    {
-        var req = request.ToModel();
-        await connection.QueueMessageAsync(l => l.UpdateSlot(req));
-        return new Google.Protobuf.WellKnownTypes.Empty();
-    }
+    public override async Task<ProtoEmpty> UpdateSlot(UpdateSlotRequest request,
+        ServerCallContext context) =>
+        (await await c.SendAsync(request.ToModel(), context.CancellationToken)).ToEmpty();
 
-    public override async Task<Google.Protobuf.WellKnownTypes.Empty> RemoveSlot(DeleteSlotRequest request,
-        ServerCallContext context)
-    {
-        var req = request.ToModel();
-        await connection.QueueMessageAsync(l => l.RemoveSlot(req));
-        return new Google.Protobuf.WellKnownTypes.Empty();
-    }
+    public override async Task<ProtoEmpty> RemoveSlot(DeleteSlotRequest request,
+        ServerCallContext context) =>
+        (await await c.SendAsync(request.ToModel(), context.CancellationToken)).ToEmpty();
 
-    public override async Task<Component> GetComponent(GetComponentRequest request, ServerCallContext context)
-    {
-        var req = request.ToModel();
-        var response = await connection.QueueMessageAsync(l => l.GetComponentData(req));
-        return RaiseMissing(response.Data).ToProto();
-    }
+    public override async Task<Component> GetComponent(GetComponentRequest request, ServerCallContext context) =>
+        Convert<ComponentData>(await await c.SendAsync(request.ToModel(), context.CancellationToken)).Data.ToProto();
 
-    public override async Task<Google.Protobuf.WellKnownTypes.Empty> AddComponent(AddComponentRequest request,
-        ServerCallContext context)
-    {
-        var req = request.ToModel();
-        await connection.QueueMessageAsync(l => l.AddComponent(req));
-        return new Google.Protobuf.WellKnownTypes.Empty();
-    }
+    public override async Task<ProtoEmpty> AddComponent(AddComponentRequest request,
+        ServerCallContext context) =>
+        (await await c.SendAsync(request.ToModel(), context.CancellationToken)).ToEmpty();
 
-    public override async Task<Google.Protobuf.WellKnownTypes.Empty> UpdateComponent(UpdateComponentRequest request,
-        ServerCallContext context)
-    {
-        var req = request.ToModel();
-        await connection.QueueMessageAsync(l => l.UpdateComponent(req));
-        return new Google.Protobuf.WellKnownTypes.Empty();
-    }
+    public override async Task<ProtoEmpty> UpdateComponent(UpdateComponentRequest request,
+        ServerCallContext context) =>
+        (await await c.SendAsync(request.ToModel(), context.CancellationToken)).ToEmpty();
 
-    public override async Task<Google.Protobuf.WellKnownTypes.Empty> RemoveComponent(DeleteComponentRequest request,
-        ServerCallContext context)
-    {
-        var req = request.ToModel();
-        await connection.QueueMessageAsync(l => l.RemoveComponent(req));
-        return new Google.Protobuf.WellKnownTypes.Empty();
-    }
+    public override async Task<ProtoEmpty> RemoveComponent(DeleteComponentRequest request,
+        ServerCallContext context) =>
+        (await await c.SendAsync(request.ToModel(), context.CancellationToken)).ToEmpty();
 
-    public override async Task<AssetResponse> ImportTextureFile(ImportFileRequest request, ServerCallContext context)
-    {
-        var req = request.ToModelTexture();
-        var response = await connection.QueueMessageAsync(l => l.ImportTexture(req));
-        return RaiseMissing(response).ToProto();
-    }
+    public override async Task<AssetResponse> ImportTextureFile(ImportFileRequest request, ServerCallContext context) =>
+        Convert<AssetData>(await await c.SendAsync(request.ToModelTexture(), context.CancellationToken)).ToProto();
 
-    public override async Task<AssetResponse> ImportAudioClipFile(ImportFileRequest request, ServerCallContext context)
-    {
-        var req = request.ToModelAudio();
-        var response = await connection.QueueMessageAsync(l => l.ImportAudioClip(req));
-        return RaiseMissing(response).ToProto();
-    }
+    public override async Task<AssetResponse>
+        ImportAudioClipFile(ImportFileRequest request, ServerCallContext context) =>
+        Convert<AssetData>(await await c.SendAsync(request.ToModelAudio(), context.CancellationToken)).ToProto();
 
-    public override async Task<AssetResponse> ImportTexture(ImportTextureRequest request, ServerCallContext context)
-    {
-        var req = request.Texture.ToModel();
-        var response = await connection.QueueMessageAsync(l => l.ImportTexture(req));
-        return RaiseMissing(response).ToProto();
-    }
+    public override async Task<AssetResponse> ImportTexture(ImportTextureRequest request, ServerCallContext context) =>
+        Convert<AssetData>(await await c.SendAsync(request.Texture.ToModel(), context.CancellationToken)).ToProto();
 
-    public override async Task<AssetResponse> ImportMesh(ImportMeshRequest request, ServerCallContext context)
-    {
-        var response = request.MeshKindCase switch
+    public override async Task<AssetResponse> ImportMesh(ImportMeshRequest request, ServerCallContext context) =>
+        Convert<AssetData>(request.MeshKindCase switch
         {
             ImportMeshRequest.MeshKindOneofCase.Json =>
-                await connection.QueueMessageAsync(l => l.ImportMesh(request.Json.ToModel())),
-            ImportMeshRequest.MeshKindOneofCase.Raw => await connection.QueueMessageAsync(l =>
-                l.ImportMesh(request.Raw.ToModel())),
+                await await c.SendAsync(request.Json.ToModel(), context.CancellationToken),
+            ImportMeshRequest.MeshKindOneofCase.Raw => await await c.SendAsync(request.Raw.ToModel(),
+                context.CancellationToken),
             _ => throw new RpcException(new Status(StatusCode.InvalidArgument,
                 "An unknown mesh import kind was provided (or one was not provided)."))
-        };
-        return RaiseMissing(response).ToProto();
-    }
+        }).ToProto();
 
-    public override async Task<AssetResponse> ImportAudioClip(ImportAudioClipRequest request, ServerCallContext context)
-    {
-        var req = request.RawClip.ToModel();
-        var response = await connection.QueueMessageAsync(l => l.ImportAudioClip(req));
-        return RaiseMissing(response).ToProto();
-    }
+    public override async Task<AssetResponse>
+        ImportAudioClip(ImportAudioClipRequest request, ServerCallContext context) =>
+        Convert<AssetData>(await await c.SendAsync(request.RawClip.ToModel(), context.CancellationToken)).ToProto();
 }

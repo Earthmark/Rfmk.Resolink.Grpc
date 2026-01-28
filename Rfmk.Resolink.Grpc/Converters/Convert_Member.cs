@@ -196,7 +196,7 @@ public static partial class Convert
         ResoniteLink.Field_double4x4 v => new Member { Double4X4 = v.ToProto() },
         ResoniteLink.Array_double4x4 v => new Member { ArrayDouble4X4 = v.ToProto() },
         ResoniteLink.Field_Nullable_double4x4 v => new Member { NullDouble4X4 = v.ToProto() },
-        {} v => throw new ArgumentException($"Model returned an unknown type, a proto twin likely needs to be added: {v.GetType()} -> {v}"),
+        { } v => throw new ArgumentException($"Model returned an unknown type, a proto twin likely needs to be added: {v.GetType()} -> {v}"),
     };
 
     private static ResoniteLink.Member? ToModel(this Member self) => self.KindCase switch
@@ -389,6 +389,6 @@ public static partial class Convert
         Member.KindOneofCase.Double4X4 => self.Double4X4.ToModel(),
         Member.KindOneofCase.ArrayDouble4X4 => self.ArrayDouble4X4.ToModel(),
         Member.KindOneofCase.NullDouble4X4 => self.NullDouble4X4.ToModel(),
-        {} v => throw new ArgumentException($"Unknown proto member enum value, the bridge may be out of date: {v}"),
+        { } v => throw new ArgumentException($"Unknown proto member enum value, the bridge may be out of date: {v}"),
     };
 }
