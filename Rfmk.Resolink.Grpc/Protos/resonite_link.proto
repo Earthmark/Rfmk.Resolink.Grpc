@@ -46,6 +46,10 @@ message BatchMutation {
     DeleteComponentRequest delete_component = 6;
   }
   bool ignore_failure = 7;
+  // An ID that may be included in debug messages to help with error detection.
+  // This should be alphanumeric characters only, dashes, and underscores.
+  // Slo
+  string debug_id = 8;
 }
 
 message BatchQuery {

@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="Rfmk.Resolink.Grpc.Bridge.Tests/Rfmk.Resolink.Grpc.Bridge.Tests.csproj" />
   <Project Path="Rfmk.Resolink.Grpc.Bridge/Rfmk.Resolink.Grpc.Bridge.csproj" />
+  <Project Path="Rfmk.Resolink.Grpc.Tests/Rfmk.Resolink.Grpc.Tests.csproj" />
   <Project Path="Rfmk.Resolink.Grpc/Rfmk.Resolink.Grpc.csproj" />
 </Solution>

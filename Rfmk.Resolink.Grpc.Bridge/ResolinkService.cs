@@ -1,7 +1,7 @@
 ﻿using Grpc.Core;
 using ResoniteLink;
+using Rfmk.Resolink.Grpc.Bridge.Connection;
 using Rfmk.Resolink.Grpc.Bridge.Converters;
-
 using ProtoEmpty = Google.Protobuf.WellKnownTypes.Empty;
 
 namespace Rfmk.Resolink.Grpc.Bridge;
@@ -29,7 +29,7 @@ public class ResolinkService(
         ServerCallContext context) =>
         (await adaptor.SendBatch(new BatchRequest
         {
-            Mutations = { CreateExpansion.ExpandCreateSlots(request.Data) }
+            Mutations = { new BatchMutation { AddSlot = request } }
         }, context.CancellationToken)).ToEmpty();
 
     public override async Task<ProtoEmpty> UpdateSlot(UpdateSlotRequest request,

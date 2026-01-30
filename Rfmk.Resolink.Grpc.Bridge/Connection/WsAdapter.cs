@@ -4,11 +4,11 @@ using System.Text.Json;
 using Grpc.Core;
 using ResoniteLink;
 
-namespace Rfmk.Resolink.Grpc.Bridge;
+namespace Rfmk.Resolink.Grpc.Bridge.Connection;
 
 public class WsAdapter(ILogger<WsAdapter> logger) : IAsyncDisposable
 {
-    public bool IsConnected => _client.State == WebSocketState.Open;
+    private bool IsConnected => _client.State == WebSocketState.Open;
 
     private readonly ClientWebSocket _client = new();
     private readonly AsyncLock _writerLock = new();
@@ -95,7 +95,7 @@ public class WsAdapter(ILogger<WsAdapter> logger) : IAsyncDisposable
             await using (var messageStream =
                          WebSocketStream.CreateWritableMessageStream(_client, WebSocketMessageType.Text))
             {
-                await JsonSerializer.SerializeAsync<Message>(messageStream, message, _options, _cts.Token);
+                await JsonSerializer.SerializeAsync(messageStream, message, _options, _cts.Token);
             }
 
             if (message is BinaryPayloadMessage binaryPayload)

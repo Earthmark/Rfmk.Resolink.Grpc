@@ -31,7 +31,7 @@ dotnet tool uninstall --global Rfmk.Resolink.Grpc
 Start a Resonite session and enable ResoniteLink. Place the port in the URL below.
 
 ```bash
-resolink-grpc --bridge:port={Resonite Link Port}
+dotnet resolink-grpc --bridge:port={Resonite Link Port}
 ```
 
 | Argument           | Description                                                                 |

@@ -1,8 +1,33 @@
-﻿namespace Rfmk.Resolink.Grpc.Bridge;
+﻿namespace Rfmk.Resolink.Grpc.Projectors;
 
-public class CreateExpansion
+public class CreateExpansion : IBatchProjector
 {
-    public static IEnumerable<BatchMutation> ExpandCreateSlots(Slot toCreate)
+    public void Project(BatchRequest request)
+    {
+        var src = request.Mutations.ToList();
+        request.Mutations.Clear();
+        foreach (var mutation in src)
+        {
+            request.Mutations.Add(mutation.MutationCase switch
+            {
+                BatchMutation.MutationOneofCase.AddSlot => ExpandAddSlot(mutation.DebugId, mutation.AddSlot),
+                _ => [mutation]
+            });
+        }
+    }
+
+    private static IEnumerable<BatchMutation> ExpandAddSlot(string debugId, AddSlotRequest request)
+    {
+        var i = 0;
+        foreach (var mutation in ExpandCreateSlots(request.Data))
+        {
+            mutation.DebugId = $"{debugId}/Create-tree expansion {i}";
+            yield return mutation;
+            i++;
+        }
+    }
+
+    private static IEnumerable<BatchMutation> ExpandCreateSlots(Slot toCreate)
     {
         foreach (var createSlot in CreateSlotTree(toCreate, null)) yield return createSlot;
         foreach (var createComponent in CreateComponentTree(toCreate)) yield return createComponent;
