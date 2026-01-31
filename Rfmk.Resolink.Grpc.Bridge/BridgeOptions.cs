@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 
-namespace Rfmk.Resolink.Grpc;
+namespace Rfmk.Resolink.Grpc.Bridge;
 
 public class BridgeOptions
 {

@@ -13,12 +13,17 @@ A [gRPC](https://grpc.io/) proxy for [ResoniteLink](https://github.com/Yellow-Do
 ### Installing
 
 ```bash
-dotnet tool install --global Rfmk.Resolink.Grpc
+dotnet tool install --global Rfmk.Resolink.Grpc.Bridge
 ```
 
 Updating if it's already installed
 ```bash
-dotnet tool update --global Rfmk.Resolink.Grpc
+dotnet tool update --global Rfmk.Resolink.Grpc.Bridge
+```
+
+If updating from the pre-release, you'll need to uninstall Rfmk.Resolink.Grpc first; it's now a library.
+```bash
+dotnet tool uninstall --global Rfmk.Resolink.Grpc
 ```
 
 ### Starting the bridge

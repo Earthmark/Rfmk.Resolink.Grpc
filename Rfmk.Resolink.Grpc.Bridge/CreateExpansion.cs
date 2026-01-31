@@ -1,4 +1,4 @@
-﻿namespace Rfmk.Resolink.Grpc;
+﻿namespace Rfmk.Resolink.Grpc.Bridge;
 
 public class CreateExpansion
 {

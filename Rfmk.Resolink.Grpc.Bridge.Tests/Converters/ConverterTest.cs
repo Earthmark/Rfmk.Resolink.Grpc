@@ -1,4 +1,4 @@
-﻿using Rfmk.Resolink.Grpc.Converters;
+﻿using Rfmk.Resolink.Grpc.Bridge.Converters;
 
 namespace Rfmk.Resolink.Grpc.Tests.Converters;
 

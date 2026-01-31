@@ -4,7 +4,7 @@ using System.Text.Json;
 using Grpc.Core;
 using ResoniteLink;
 
-namespace Rfmk.Resolink.Grpc;
+namespace Rfmk.Resolink.Grpc.Bridge;
 
 public class WsAdapter(ILogger<WsAdapter> logger) : IAsyncDisposable
 {

@@ -20,7 +20,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Rfmk.Resolink.Grpc\Rfmk.Resolink.Grpc.csproj" />
+      <ProjectReference Include="..\Rfmk.Resolink.Grpc.Bridge\Rfmk.Resolink.Grpc.Bridge.csproj" />
     </ItemGroup>
     
 </Project>
