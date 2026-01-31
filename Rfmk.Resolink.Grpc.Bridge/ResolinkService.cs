@@ -1,10 +1,10 @@
 ﻿using Grpc.Core;
 using ResoniteLink;
-using Rfmk.Resolink.Grpc.Converters;
+using Rfmk.Resolink.Grpc.Bridge.Converters;
 
 using ProtoEmpty = Google.Protobuf.WellKnownTypes.Empty;
 
-namespace Rfmk.Resolink.Grpc;
+namespace Rfmk.Resolink.Grpc.Bridge;
 
 public class ResolinkService(
     WsAdapter c,

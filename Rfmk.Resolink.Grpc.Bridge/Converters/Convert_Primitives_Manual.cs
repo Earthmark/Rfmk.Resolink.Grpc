@@ -1,6 +1,6 @@
 ﻿using Google.Protobuf.WellKnownTypes;
 
-namespace Rfmk.Resolink.Grpc.Converters;
+namespace Rfmk.Resolink.Grpc.Bridge.Converters;
 
 public static partial class Convert
 {

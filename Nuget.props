@@ -1,0 +1,17 @@
+<Project>
+  <PropertyGroup>
+    <Version>0.2.0</Version>
+    <Authors>Earthmark</Authors>
+    <RepositoryUrl>https://github.com/Earthmark/Rfmk.Resolink.Grpc</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+
+    <IsPackable>true</IsPackable>
+    <PackageOutputPath>.\..\nupkg</PackageOutputPath>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+</Project>

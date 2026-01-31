@@ -1,7 +1,7 @@
 ﻿using ResoniteLink;
-using Rfmk.Resolink.Grpc.Converters;
+using Rfmk.Resolink.Grpc.Bridge.Converters;
 
-namespace Rfmk.Resolink.Grpc;
+namespace Rfmk.Resolink.Grpc.Bridge;
 
 public class BatchAdaptor(WsAdapter link)
 {

@@ -1,4 +1,4 @@
-﻿namespace Rfmk.Resolink.Grpc.Tests;
+﻿namespace Rfmk.Resolink.Grpc.Bridge.Tests;
 
 public class CreateExpansionTests
 {
