@@ -5,7 +5,7 @@ namespace Rfmk.Resolink.Grpc;
 public class BridgeOptions
 {
     public Uri? HostUrl { get; set; } = null;
-    
+
     public int? Port { get; set; } = null;
 }
 

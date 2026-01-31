@@ -1,0 +1,181 @@
+﻿{
+  Mutations: [
+    {
+      AddSlot: {
+        Data: {
+          Id: Guid_1,
+          IsReferenceOnly: false,
+          Parent: {
+            Id: ,
+            TargetType: 
+          },
+          Name: {
+            Id: ,
+            Value: Taco
+          }
+        }
+      },
+      IgnoreFailure: false,
+      MutationCase: AddSlot
+    },
+    {
+      AddSlot: {
+        Data: {
+          Id: ,
+          IsReferenceOnly: false,
+          Parent: {
+            Id: ,
+            TargetId: Guid_1,
+            TargetType: 
+          },
+          Name: {
+            Id: ,
+            Value: Burrito
+          }
+        }
+      },
+      IgnoreFailure: false,
+      MutationCase: AddSlot
+    },
+    {
+      AddSlot: {
+        Data: {
+          Id: ,
+          IsReferenceOnly: false,
+          Parent: {
+            Id: ,
+            TargetId: Guid_1,
+            TargetType: 
+          },
+          Name: {
+            Id: ,
+            Value: Quesadilla
+          }
+        }
+      },
+      IgnoreFailure: false,
+      MutationCase: AddSlot
+    },
+    {
+      AddSlot: {
+        Data: {
+          Id: Guid_2,
+          IsReferenceOnly: false,
+          Parent: {
+            Id: ,
+            TargetId: Guid_1,
+            TargetType: 
+          },
+          Name: {
+            Id: ,
+            Value: Hot Dog
+          }
+        }
+      },
+      IgnoreFailure: false,
+      MutationCase: AddSlot
+    },
+    {
+      AddComponent: {
+        ContainerSlotId: Guid_1,
+        Data: {
+          Id: Something,
+          IsReferenceOnly: false,
+          ComponentType: 
+        }
+      },
+      IgnoreFailure: false,
+      MutationCase: AddComponent
+    },
+    {
+      AddComponent: {
+        ContainerSlotId: Guid_1,
+        Data: {
+          Id: Something Else,
+          IsReferenceOnly: false,
+          ComponentType: 
+        }
+      },
+      IgnoreFailure: false,
+      MutationCase: AddComponent
+    },
+    {
+      AddComponent: {
+        ContainerSlotId: Guid_1,
+        Data: {
+          Id: Something Else Again,
+          IsReferenceOnly: false,
+          ComponentType: 
+        }
+      },
+      IgnoreFailure: false,
+      MutationCase: AddComponent
+    },
+    {
+      AddComponent: {
+        ContainerSlotId: Guid_2,
+        Data: {
+          Id: Guid_3,
+          IsReferenceOnly: false,
+          ComponentType: 
+        }
+      },
+      IgnoreFailure: false,
+      MutationCase: AddComponent
+    },
+    {
+      UpdateComponent: {
+        Data: {
+          Id: Something Else,
+          IsReferenceOnly: false,
+          ComponentType: ,
+          Members: {
+            Other Mystery: {
+              Float: {
+                Id: ,
+                Value: 3.14
+              },
+              KindCase: Float
+            }
+          }
+        }
+      },
+      IgnoreFailure: false,
+      MutationCase: UpdateComponent
+    },
+    {
+      UpdateComponent: {
+        Data: {
+          Id: Guid_3,
+          IsReferenceOnly: false,
+          ComponentType: ,
+          Members: {
+            Mystery: {
+              Sbyte: {
+                Id: ,
+                Value: 3
+              },
+              KindCase: Sbyte
+            },
+            Secret Mystery: {
+              Long: {
+                Id: ,
+                Value: 31222
+              },
+              KindCase: Long
+            },
+            Third Mystery: {
+              Bool: {
+                Id: ,
+                Value: true
+              },
+              KindCase: Bool
+            }
+          }
+        }
+      },
+      IgnoreFailure: false,
+      MutationCase: UpdateComponent
+    }
+  ]
+}

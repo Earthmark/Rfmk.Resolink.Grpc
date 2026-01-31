@@ -1,10 +1,9 @@
 ﻿using Microsoft.Extensions.Options;
-using Rfmk.Resolink.Grpc.Link;
 
 namespace Rfmk.Resolink.Grpc;
 
 public class StartupConnection(
-    Connection connection,
+    WsAdapter connection,
     IOptions<BridgeOptions> opts,
     IHostLifetime lifetime,
     ILogger<StartupConnection> logger

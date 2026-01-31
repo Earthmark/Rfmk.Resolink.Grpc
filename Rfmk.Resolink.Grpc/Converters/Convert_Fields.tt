@@ -51,22 +51,26 @@ public static partial class Convert
 
     private static <#= m.NullabeFieldName #> ToProto(this <#=nullableLinkName#> self)
     {
-        var result = new <#=m.NullabeFieldName#> {
-          Id = self.ID,
+        var result = new <#=m.NullabeFieldName#>
+        {
+            Id = self.ID,
         };
-        if (self.Value != null) {
-          result.Value = self.Value.Value<#= toProtoCall #>;
+        if (self.Value != null)
+        {
+            result.Value = self.Value.Value<#= toProtoCall #>;
         }
         return result;
     }
 
     private static <#=nullableLinkName#> ToModel(this <#=m.NullabeFieldName#> self)
     {
-        var result = new <#=nullableLinkName#> {
-          ID = self.Id,
+        var result = new <#=nullableLinkName#>
+        {
+            ID = self.Id,
         };
-        if (self.Value != null) {
-          result.Value = <#= m.UpcastNeeded && m.Builtin ? $"({type}?)" : "" #>self.Value<#= toModelCall #>;
+        if (self.Value != null)
+        {
+            result.Value = <#= m.UpcastNeeded && m.Builtin ? $"({type}?)" : "" #>self.Value<#= toModelCall #>;
         }
         return result;
     }

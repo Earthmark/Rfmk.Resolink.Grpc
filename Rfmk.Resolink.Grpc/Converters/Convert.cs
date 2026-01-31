@@ -61,7 +61,7 @@ public static partial class Convert
     {
         FilePath = self.FilePath,
     };
-    
+
     public static Slot ToProto(this ResoniteLink.Slot self) => new()
     {
         Id = self.ID,
@@ -111,4 +111,46 @@ public static partial class Convert
         ComponentType = self.ComponentType,
         Members = self.Members.ToDictionary(kvp => kvp.Key, kvp => kvp.Value.ToModel()),
     };
+
+    public static ResoniteLink.Message? ToModel(this BatchMutation self)
+    {
+        return self.MutationCase switch
+        {
+            BatchMutation.MutationOneofCase.None => null,
+            BatchMutation.MutationOneofCase.AddSlot => self.AddSlot.ToModel(),
+            BatchMutation.MutationOneofCase.UpdateSlot => self.UpdateSlot.ToModel(),
+            BatchMutation.MutationOneofCase.DeleteSlot => self.DeleteSlot.ToModel(),
+            BatchMutation.MutationOneofCase.AddComponent => self.AddComponent.ToModel(),
+            BatchMutation.MutationOneofCase.UpdateComponent => self.UpdateComponent.ToModel(),
+            BatchMutation.MutationOneofCase.DeleteComponent => self.DeleteComponent.ToModel(),
+            _ => throw new ArgumentOutOfRangeException()
+        };
+    }
+
+    public static ResoniteLink.Message? ToModel(this BatchQuery self)
+    {
+        return self.QueryCase switch
+        {
+            BatchQuery.QueryOneofCase.None => null,
+            BatchQuery.QueryOneofCase.GetSlot => self.GetSlot.ToModel(),
+            BatchQuery.QueryOneofCase.GetComponent => self.GetComponent.ToModel(),
+            _ => throw new ArgumentOutOfRangeException()
+        };
+    }
+
+    public static BatchQueryResponse ToProto(this ResoniteLink.Response self)
+    {
+        return self switch
+        {
+            ResoniteLink.ComponentData msg => new BatchQueryResponse
+            {
+                Component = msg.Data.ToProto(),
+            },
+            ResoniteLink.SlotData msg => new BatchQueryResponse
+            {
+                Slot = msg.Data.ToProto()
+            },
+            _ => throw new ArgumentOutOfRangeException(nameof(self))
+        };
+    }
 }

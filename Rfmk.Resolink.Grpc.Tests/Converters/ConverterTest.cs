@@ -47,7 +47,7 @@ public class ConverterTest
 
         var modelVersion = source.ToModel();
         var outputVersion = modelVersion.ToProto();
-        
+
         Assert.Equivalent(source, outputVersion);
         Assert.Equal("Mystery Field", outputVersion.Components[0].Members["Mystery"].Sbyte.Id);
     }

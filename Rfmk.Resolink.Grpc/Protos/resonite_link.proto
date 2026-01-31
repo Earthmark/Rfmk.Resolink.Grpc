@@ -10,6 +10,8 @@ import "models.proto";
 service LinkService {
   rpc GetSession (google.protobuf.Empty) returns (GetSessionResponse) {}
   
+  rpc ApplyBatch(BatchRequest) returns (BatchResponse) {}
+  
   rpc GetSlot (GetSlotRequest) returns (Slot) {}
   rpc AddSlot (AddSlotRequest) returns (google.protobuf.Empty) {}
   rpc UpdateSlot (UpdateSlotRequest) returns (google.protobuf.Empty) {}
@@ -27,6 +29,41 @@ service LinkService {
   rpc ImportTexture (ImportTextureRequest) returns (AssetResponse);
   rpc ImportMesh (ImportMeshRequest) returns (AssetResponse);
   rpc ImportAudioClip (ImportAudioClipRequest) returns (AssetResponse);
+}
+
+message BatchRequest {
+  repeated BatchMutation mutations = 1;
+  repeated BatchQuery queries = 2;
+}
+
+message BatchMutation {
+  oneof mutation {
+    AddSlotRequest add_slot = 1;
+    UpdateSlotRequest update_slot = 2;
+    DeleteSlotRequest delete_slot = 3;
+    AddComponentRequest add_component = 4;
+    UpdateComponentRequest update_component = 5;
+    DeleteComponentRequest delete_component = 6;
+  }
+  bool ignore_failure = 7;
+}
+
+message BatchQuery {
+  oneof query {
+    GetSlotRequest get_slot = 1;
+    GetComponentRequest get_component = 2;
+  }
+}
+
+message BatchResponse {
+  repeated BatchQueryResponse queries = 1;
+}
+
+message BatchQueryResponse {
+  oneof query {
+    Slot slot = 1;
+    Component component = 2;
+  }
 }
 
 message GetSessionResponse {

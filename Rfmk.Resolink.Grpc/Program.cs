@@ -1,6 +1,5 @@
 using Microsoft.Extensions.Options;
 using Rfmk.Resolink.Grpc;
-using Rfmk.Resolink.Grpc.Link;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,8 +9,9 @@ builder.Services.AddOptions<BridgeOptions>()
     .ValidateDataAnnotations()
     .ValidateOnStart();
 builder.Services.AddSingleton<IValidateOptions<BridgeOptions>, BridgeOptionsValidator>();
-builder.Services.AddSingleton<Connection>();
-builder.Services.AddHostedService<StartupConnection>(); 
+builder.Services.AddScoped<BatchAdaptor>();
+builder.Services.AddSingleton<WsAdapter>();
+builder.Services.AddHostedService<StartupConnection>();
 
 var app = builder.Build();
 

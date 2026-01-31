@@ -2,13 +2,13 @@
 
 [![NuGet version](https://img.shields.io/nuget/v/Rfmk.Resolink.Grpc.svg)](https://www.nuget.org/packages/Rfmk.Resolink.Grpc)
 
-A [gRPC](https://grpc.io/) proxy for [ResoniteLink](https://github.com/Yellow-Dog-Man/ResoniteLink), exposing ResoniteLink with a strongly-typed [GRPC](https://grpc.io/) and [protobuf](https://protobuf.dev/) API.
+A [gRPC](https://grpc.io/) proxy for [ResoniteLink](https://github.com/Yellow-Dog-Man/ResoniteLink), exposing ResoniteLink with a strongly typed [GRPC](https://grpc.io/) and [protobuf](https://protobuf.dev/) API.
 
 ## Getting Started
 
-### Prequisites:
+### Perquisites:
 
-[.NET 10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) - Either SDK or ASP.NET, SDK is recommended.
+[.NET-10](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) - Either SDK or ASP.NET, SDK is recommended.
 
 ### Installing
 
@@ -16,14 +16,14 @@ A [gRPC](https://grpc.io/) proxy for [ResoniteLink](https://github.com/Yellow-Do
 dotnet tool install --global Rfmk.Resolink.Grpc
 ```
 
-Updaring if it's already installed
+Updating if it's already installed
 ```bash
 dotnet tool update --global Rfmk.Resolink.Grpc
 ```
 
 ### Starting the bridge
 
-Start a Resonite session, and enable ResoniteLink. Place the port in the URL below.
+Start a Resonite session and enable ResoniteLink. Place the port in the URL below.
 
 ```bash
 resolink-grpc --bridge:port={Resonite Link Port}
@@ -39,7 +39,7 @@ resolink-grpc --bridge:port={Resonite Link Port}
 
 GRPC and protobuf schemas are in the `Protos` folder, use the `protoc` [compiler](https://protobuf.dev/installation/) to generate a client.
 
-The APIs are fairly normal rest-ish APIs, and follow the same structure as [ResoniteLink](https://github.com/Yellow-Dog-Man/ResoniteLink).
+The APIs are fairly normal rest-ish APIs and follow the same structure as [ResoniteLink](https://github.com/Yellow-Dog-Man/ResoniteLink).
 
 A good starting query:
 ```textproto
