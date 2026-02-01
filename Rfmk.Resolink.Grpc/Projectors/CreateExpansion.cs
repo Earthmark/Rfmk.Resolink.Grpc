@@ -1,6 +1,6 @@
 ﻿namespace Rfmk.Resolink.Grpc.Projectors;
 
-public class CreateExpansion : IBatchProjector
+public class CreateExpansion : IBatchProjectorLayer
 {
     public void Project(BatchRequest request)
     {

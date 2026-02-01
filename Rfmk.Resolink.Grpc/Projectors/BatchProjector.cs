@@ -1,16 +1,16 @@
 ﻿namespace Rfmk.Resolink.Grpc.Projectors;
 
-public class Projector
+public class BatchProjector : IBatchProjector
 {
-    private readonly List<IBatchProjector> _projectors =
+    private readonly List<IBatchProjectorLayer> _projectors =
     [
         new DebugNumberFallback(),
         new CreateExpansion()
     ];
 
-    public static void Project(BatchRequest request)
+    public void Project(BatchRequest request)
     {
-        foreach (var projector in new Projector()._projectors)
+        foreach (var projector in _projectors)
         {
             projector.Project(request);
         }
