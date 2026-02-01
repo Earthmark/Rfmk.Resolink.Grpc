@@ -1,4 +1,4 @@
-﻿namespace Rfmk.Resolink.Grpc.Bridge;
+﻿namespace Rfmk.Resolink.Grpc.Bridge.Connection;
 
 public class AsyncLock : IDisposable
 {

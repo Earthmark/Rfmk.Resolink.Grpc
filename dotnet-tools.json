@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "isRoot": true,
+  "tools": {
+    "rfmk.resolink.grpc.bridge": {
+      "version": "0.2.0",
+      "commands": [
+        "resolink-grpc"
+      ],
+      "rollForward": false
+    }
+  }
+}

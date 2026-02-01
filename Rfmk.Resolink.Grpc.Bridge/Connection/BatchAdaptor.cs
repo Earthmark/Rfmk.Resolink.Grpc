@@ -1,12 +1,15 @@
 ﻿using ResoniteLink;
 using Rfmk.Resolink.Grpc.Bridge.Converters;
+using Rfmk.Resolink.Grpc.Projectors;
 
-namespace Rfmk.Resolink.Grpc.Bridge;
+namespace Rfmk.Resolink.Grpc.Bridge.Connection;
 
 public class BatchAdaptor(WsAdapter link)
 {
     public async Task<BatchResponse> SendBatch(BatchRequest request, CancellationToken cancellationToken = default)
     {
+        Projector.Project(request);
+
         List<Task<Response>> mutations = [];
         foreach (var mut in request.Mutations)
         {

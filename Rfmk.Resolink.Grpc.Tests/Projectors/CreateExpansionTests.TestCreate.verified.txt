@@ -16,6 +16,7 @@
         }
       },
       IgnoreFailure: false,
+      DebugId: Mut-1/Create-tree expansion 0,
       MutationCase: AddSlot
     },
     {
@@ -35,6 +36,7 @@
         }
       },
       IgnoreFailure: false,
+      DebugId: Mut-1/Create-tree expansion 1,
       MutationCase: AddSlot
     },
     {
@@ -54,6 +56,7 @@
         }
       },
       IgnoreFailure: false,
+      DebugId: Mut-1/Create-tree expansion 2,
       MutationCase: AddSlot
     },
     {
@@ -73,6 +76,7 @@
         }
       },
       IgnoreFailure: false,
+      DebugId: Mut-1/Create-tree expansion 3,
       MutationCase: AddSlot
     },
     {
@@ -85,6 +89,7 @@
         }
       },
       IgnoreFailure: false,
+      DebugId: Mut-1/Create-tree expansion 4,
       MutationCase: AddComponent
     },
     {
@@ -97,6 +102,7 @@
         }
       },
       IgnoreFailure: false,
+      DebugId: Mut-1/Create-tree expansion 5,
       MutationCase: AddComponent
     },
     {
@@ -109,6 +115,7 @@
         }
       },
       IgnoreFailure: false,
+      DebugId: Mut-1/Create-tree expansion 6,
       MutationCase: AddComponent
     },
     {
@@ -121,6 +128,7 @@
         }
       },
       IgnoreFailure: false,
+      DebugId: Mut-1/Create-tree expansion 7,
       MutationCase: AddComponent
     },
     {
@@ -141,6 +149,7 @@
         }
       },
       IgnoreFailure: false,
+      DebugId: Mut-1/Create-tree expansion 8,
       MutationCase: UpdateComponent
     },
     {
@@ -175,6 +184,7 @@
         }
       },
       IgnoreFailure: false,
+      DebugId: Mut-1/Create-tree expansion 9,
       MutationCase: UpdateComponent
     }
   ]

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Options;
+using Rfmk.Resolink.Grpc.Bridge.Connection;
 
 namespace Rfmk.Resolink.Grpc.Bridge;
 

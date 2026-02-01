@@ -1,5 +1,6 @@
 using Microsoft.Extensions.Options;
 using Rfmk.Resolink.Grpc.Bridge;
+using Rfmk.Resolink.Grpc.Bridge.Connection;
 
 var builder = WebApplication.CreateBuilder(args);
 
