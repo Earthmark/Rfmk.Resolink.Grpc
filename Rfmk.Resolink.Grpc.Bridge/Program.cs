@@ -1,6 +1,8 @@
 using Microsoft.Extensions.Options;
+using Rfmk.Resolink.Grpc;
 using Rfmk.Resolink.Grpc.Bridge;
 using Rfmk.Resolink.Grpc.Bridge.Connection;
+using Rfmk.Resolink.Grpc.Projectors;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +12,9 @@ builder.Services.AddOptions<BridgeOptions>()
     .ValidateDataAnnotations()
     .ValidateOnStart();
 builder.Services.AddSingleton<IValidateOptions<BridgeOptions>, BridgeOptionsValidator>();
-builder.Services.AddScoped<BatchAdaptor>();
+builder.Services.AddTransient<ILinkConnection, WsLinkConnection>();
+builder.Services.AddTransient<IBatchProjector, BatchProjector>();
+builder.Services.AddTransient<WsLinkConnection>();
 builder.Services.AddSingleton<WsAdapter>();
 builder.Services.AddHostedService<StartupConnection>();
 
