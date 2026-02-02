@@ -2,7 +2,7 @@
 
 public class CreateExpansion : IBatchProjectorLayer
 {
-    public void Project(BatchRequest request)
+    public void PrepareRequest(BatchRequest request)
     {
         var src = request.Mutations.ToList();
         request.Mutations.Clear();
@@ -15,6 +15,8 @@ public class CreateExpansion : IBatchProjectorLayer
             });
         }
     }
+
+    public void PrepareResponse(BatchRequest request, BatchResponse response) { }
 
     private static IEnumerable<BatchMutation> ExpandAddSlot(string debugId, AddSlotRequest request)
     {

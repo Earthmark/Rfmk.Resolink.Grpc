@@ -2,7 +2,7 @@
 
 public class DebugNumberFallback : IBatchProjectorLayer
 {
-    public void Project(BatchRequest request)
+    public void PrepareRequest(BatchRequest request)
     {
         var i = 0;
         foreach (var mutation in request.Mutations)
@@ -14,5 +14,9 @@ public class DebugNumberFallback : IBatchProjectorLayer
 
             i++;
         }
+    }
+
+    public void PrepareResponse(BatchRequest request, BatchResponse response)
+    {
     }
 }

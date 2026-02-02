@@ -14,8 +14,10 @@ public class ResolinkService(
 {
     public override async Task<BatchResponse> ApplyBatch(BatchRequest request, ServerCallContext context)
     {
-        projector.Project(request);
-        return await link.SendBatchAsync(request, context.CancellationToken);
+        projector.PrepareRequest(request);
+        var response = await link.SendBatchAsync(request, context.CancellationToken);
+        projector.PrepareResponse(request, response);
+        return response;
     }
 
     private static BatchQueryResponse GetFirstResponse(BatchResponse response)
