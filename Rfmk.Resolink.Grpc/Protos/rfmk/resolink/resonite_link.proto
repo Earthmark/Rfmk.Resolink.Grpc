@@ -3,24 +3,70 @@ syntax = "proto3";
 package rfmk.resolink;
 
 import "google/protobuf/empty.proto";
+import "google/api/annotations.proto";
 
-import "assets.proto";
-import "models.proto";
+import "rfmk/resolink/assets.proto";
+import "rfmk/resolink/models.proto";
 
 service LinkService {
-  rpc GetSession (google.protobuf.Empty) returns (GetSessionResponse) {}
+  rpc GetSession (google.protobuf.Empty) returns (GetSessionResponse) {
+    option (google.api.http) = {
+      get: "/session"
+    };
+  }
   
-  rpc ApplyBatch(BatchRequest) returns (BatchResponse) {}
+  rpc ApplyBatch(BatchRequest) returns (BatchResponse) {
+    option (google.api.http) = {
+      post: "/batch",
+      body: "*"
+    };
+  }
   
-  rpc GetSlot (GetSlotRequest) returns (Slot) {}
-  rpc AddSlot (AddSlotRequest) returns (google.protobuf.Empty) {}
-  rpc UpdateSlot (UpdateSlotRequest) returns (google.protobuf.Empty) {}
-  rpc RemoveSlot (DeleteSlotRequest) returns (google.protobuf.Empty) {}
+  rpc GetSlot (GetSlotRequest) returns (Slot) {
+    option (google.api.http) = {
+      get: "/slot/{slot_id}",
+    };
+  }
+  rpc AddSlot (AddSlotRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/slot",
+      body: "data"
+    };
+  }
+  rpc UpdateSlot (UpdateSlotRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      put: "/slot",
+      body: "data"
+    };
+  }
+  rpc RemoveSlot (DeleteSlotRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      delete: "/slot/{slot_id}",
+    };
+  }
 
-  rpc GetComponent (GetComponentRequest) returns (Component) {}
-  rpc AddComponent (AddComponentRequest) returns (google.protobuf.Empty) {}
-  rpc UpdateComponent (UpdateComponentRequest) returns (google.protobuf.Empty) {}
-  rpc RemoveComponent (DeleteComponentRequest) returns (google.protobuf.Empty) {}
+  rpc GetComponent (GetComponentRequest) returns (Component) {
+    option (google.api.http) = {
+      get: "/component/{component_id}"
+    };
+  }
+  rpc AddComponent (AddComponentRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/component",
+      body: "data"
+    };
+  }
+  rpc UpdateComponent (UpdateComponentRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      put: "/component",
+      body: "data"
+    };
+  }
+  rpc RemoveComponent (DeleteComponentRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      delete: "/component/{component_id}",
+    };
+  }
 
   // File operations (this may not be available in all contexts).
   rpc ImportTextureFile (ImportFileRequest) returns (AssetResponse);

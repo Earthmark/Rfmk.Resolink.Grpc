@@ -1,4 +1,5 @@
 ﻿using Grpc.Core;
+using Microsoft.Extensions.Options;
 using Rfmk.Resolink.Grpc.Projectors;
 using ProtoEmpty = Google.Protobuf.WellKnownTypes.Empty;
 
@@ -6,7 +7,9 @@ namespace Rfmk.Resolink.Grpc;
 
 public class ResolinkService(
     IBatchProjector projector,
-    ILinkConnection link
+    ILinkConnection link,
+    // ReSharper disable once ParameterOnlyUsedForPreconditionCheck.Local
+    IOptionsSnapshot<LinkServiceOptions> opts
 ) : LinkService.LinkServiceBase
 {
     public override async Task<BatchResponse> ApplyBatch(BatchRequest request, ServerCallContext context)
@@ -15,8 +18,14 @@ public class ResolinkService(
         return await link.SendBatchAsync(request, context.CancellationToken);
     }
 
+    private static BatchQueryResponse GetFirstResponse(BatchResponse response)
+        => response.Queries.FirstOrDefault() ??
+           throw new RpcException(
+               new Status(StatusCode.Internal,
+                   "Expected a query response, but non was provided."));
+
     public override async Task<Slot> GetSlot(GetSlotRequest request, ServerCallContext context) =>
-        (await ApplyBatch(new BatchRequest
+        GetFirstResponse(await ApplyBatch(new BatchRequest
         {
             Queries =
             {
@@ -25,7 +34,7 @@ public class ResolinkService(
                     GetSlot = request
                 }
             }
-        }, context)).Queries[0].Slot;
+        }, context)).Slot;
 
     public override async Task<ProtoEmpty> AddSlot(AddSlotRequest request,
         ServerCallContext context) =>
@@ -67,7 +76,7 @@ public class ResolinkService(
         }, context)).ToEmpty();
 
     public override async Task<Component> GetComponent(GetComponentRequest request, ServerCallContext context) =>
-        (await ApplyBatch(new BatchRequest
+        GetFirstResponse(await ApplyBatch(new BatchRequest
         {
             Queries =
             {
@@ -76,7 +85,7 @@ public class ResolinkService(
                     GetComponent = request
                 }
             }
-        }, context)).Queries[0].Component;
+        }, context)).Component;
 
     public override async Task<ProtoEmpty> AddComponent(AddComponentRequest request,
         ServerCallContext context) =>
@@ -121,12 +130,27 @@ public class ResolinkService(
         ServerCallContext context) =>
         link.GetSessionAsync(context.CancellationToken);
 
-    public override Task<AssetResponse> ImportTextureFile(ImportFileRequest request, ServerCallContext context) =>
-        link.ImportTextureFileAsync(request, context.CancellationToken);
+    private void CheckFileOpsAllowed()
+    {
+        if (!opts.Value.AllowFileOps)
+        {
+            throw new RpcException(new Status(StatusCode.PermissionDenied,
+                "File operations are disabled, this is configured in API settings."));
+        }
+    }
+
+    public override Task<AssetResponse> ImportTextureFile(ImportFileRequest request, ServerCallContext context)
+    {
+        CheckFileOpsAllowed();
+        return link.ImportTextureFileAsync(request, context.CancellationToken);
+    }
 
     public override Task<AssetResponse>
-        ImportAudioClipFile(ImportFileRequest request, ServerCallContext context) =>
-        link.ImportAudioClipFileAsync(request, context.CancellationToken);
+        ImportAudioClipFile(ImportFileRequest request, ServerCallContext context)
+    {
+        CheckFileOpsAllowed();
+        return link.ImportAudioClipFileAsync(request, context.CancellationToken);
+    }
 
     public override Task<AssetResponse> ImportTexture(ImportTextureRequest request, ServerCallContext context) =>
         link.ImportTextureAsync(request, context.CancellationToken);
