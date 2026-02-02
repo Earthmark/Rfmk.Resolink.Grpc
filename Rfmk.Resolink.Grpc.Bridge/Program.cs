@@ -3,6 +3,7 @@ using Microsoft.OpenApi.Models;
 using Rfmk.Resolink.Grpc;
 using Rfmk.Resolink.Grpc.Bridge;
 using Rfmk.Resolink.Grpc.Bridge.Connection;
+using Rfmk.Resolink.Grpc.Bridge.Projectors;
 using Rfmk.Resolink.Grpc.Projectors;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,6 +32,8 @@ builder.Services.AddTransient<IBatchProjector, BatchProjector>();
 builder.Services.AddTransient<WsLinkConnection>();
 builder.Services.AddSingleton<WsAdapter>();
 builder.Services.AddHostedService<StartupConnection>();
+
+builder.Services.AddTransient<IBatchProjectorLayer, ExcludeComponentsEnforcer>();
 
 var app = builder.Build();
 

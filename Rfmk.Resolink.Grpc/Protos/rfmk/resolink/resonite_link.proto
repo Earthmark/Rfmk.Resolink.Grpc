@@ -125,7 +125,12 @@ message GetSessionResponse {
 message GetSlotRequest {
   string slot_id = 1;
   int32 depth = 2;
+  // If true, members on components are included in the response.
+  // Otherwise, members of components are omitted.
   bool include_component_data = 3;
+  // If true, slots will not contain components at all.
+  // this overrides include_component_data.
+  bool include_components = 4;
 }
 
 message AddSlotRequest {

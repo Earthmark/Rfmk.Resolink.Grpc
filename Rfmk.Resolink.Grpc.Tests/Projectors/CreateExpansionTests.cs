@@ -60,7 +60,7 @@ public class CreateExpansionTests
             }
         };
 
-        new CreateExpansion().Project(changes);
+        new CreateExpansion().PrepareRequest(changes);
 
         return Verify(changes);
     }

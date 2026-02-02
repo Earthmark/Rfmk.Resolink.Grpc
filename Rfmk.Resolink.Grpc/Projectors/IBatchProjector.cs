@@ -2,5 +2,6 @@
 
 public interface IBatchProjector
 {
-    void Project(BatchRequest request);
+    void PrepareRequest(BatchRequest request);
+    void PrepareResponse(BatchRequest request, BatchResponse response);
 }

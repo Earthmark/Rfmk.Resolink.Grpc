@@ -13,8 +13,6 @@ public class WsLinkConnection(WsAdapter c) : ILinkConnection
 
     public async Task<BatchResponse> SendBatchAsync(BatchRequest request, CancellationToken cancelToken = default)
     {
-        new BatchProjector().Project(request);
-
         List<Task<Response>> mutations = [];
         foreach (var mut in request.Mutations)
         {
