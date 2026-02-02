@@ -92,8 +92,8 @@ public static partial class Convert
         Scale = self.Scale?.ToModel(),
         IsActive = self.IsActive?.ToModel(),
         IsPersistent = self.IsPersistent?.ToModel(),
-        Children = self.Children?.Select(ToModel).ToList(),
-        Components = self.Components?.Select(ToModel).ToList()
+        Children = self.Children.Count > 0 ? self.Children?.Select(ToModel).ToList() : null,
+        Components = self.Components.Count > 0 ? self.Components?.Select(ToModel).ToList() : null
     };
 
     public static Component ToProto(this ResoniteLink.Component self) => new()

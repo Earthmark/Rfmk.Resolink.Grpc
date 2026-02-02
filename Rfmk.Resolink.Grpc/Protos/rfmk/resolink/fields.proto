@@ -10,7 +10,7 @@ import "google/protobuf/duration.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
-import "primitives.proto";
+import "rfmk/resolink/primitives.proto";
 
 /////////////////
 // The Monster //

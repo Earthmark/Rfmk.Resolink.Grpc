@@ -2,7 +2,7 @@
 
 package rfmk.resolink;
 
-import "fields.proto";
+import "rfmk/resolink/fields.proto";
 
 //////////////////////////
 // Root Datamodel Types //

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package rfmk.resolink;
 
-import "primitives.proto";
+import "rfmk/resolink/primitives.proto";
 
 //////////////
 // Textures //

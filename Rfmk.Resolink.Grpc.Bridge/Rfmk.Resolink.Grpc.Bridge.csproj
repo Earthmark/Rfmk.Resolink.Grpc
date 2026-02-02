@@ -10,10 +10,13 @@
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <IncludeHttpRuleProtos>true</IncludeHttpRuleProtos>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Grpc.AspNetCore" Version="2.76.0" />
+    <PackageReference Include="Grpc.AspNetCore.Web" Version="2.76.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Grpc.Swagger" Version="0.10.2" />
     <PackageReference Include="YellowDogMan.ResoniteLink" Version="0.4.0" />
   </ItemGroup>
 
